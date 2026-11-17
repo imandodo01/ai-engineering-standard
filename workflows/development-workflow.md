@@ -15,15 +15,21 @@
 - For multi-step or risky work, outline a short implementation plan and key risks.
 - Choose the smallest coherent approach.
 - Identify verification steps before coding.
+- When work contains multiple deliverables, map dependencies, shared-file/API/schema conflicts, and independent verification boundaries before deciding what can run concurrently.
+- Use the [Parallel Workstream Development](parallel-workstream-development.md) workflow when parallel execution can reduce waiting without increasing integration risk.
 
 ## 4. Implement
 - Keep changes within scope.
 - Reuse existing abstractions and UI patterns.
 - Add validation, authorization, error handling, and transaction boundaries where required.
 - Avoid unrelated formatting churn and dependency changes.
+- Implement independent work items in separate, focused branches/PRs where the repository workflow supports it. Coordinate shared contracts and high-conflict files rather than editing them concurrently.
 
 ## 5. Verify
 - Run focused tests first, then broader relevant checks when practical.
+- Verify each work item against its own acceptance criteria and run CI/review as soon as it is ready; do not defer all verification until every workstream finishes.
+- Isolate mutable test resources when checks run concurrently.
+- After integration, run cross-workstream regression checks against the combined result.
 - Review the diff for correctness, accidental changes, secrets, debug code, and consistency.
 - Fix issues found and rerun affected checks.
 - If execution is blocked, explain exactly what could not be verified.
