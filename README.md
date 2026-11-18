@@ -10,11 +10,13 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 2. Load only the policy documents relevant to the task.
 3. Inspect the target repository and follow its established conventions.
 4. Treat project-local instructions as specialization, not permission to weaken safety or verification requirements.
+5. For resumed or transferred work, follow [Session Continuity and Recovery](workflows/session-continuity.md) and validate the latest checkpoint against the actual project state.
 
 ## Policies
 - [Engineering principles](principles/engineering-principles.md)
 - [Development workflow](workflows/development-workflow.md)
 - [Context-aware interaction and clarification](workflows/context-aware-interaction.md)
+- [Session continuity and recovery](workflows/session-continuity.md)
 - [Text encoding and Unicode compatibility](standards/text-encoding-policy.md)
 - [Git policy](standards/git-policy.md)
 - [Testing and verification](standards/testing-policy.md)
@@ -26,6 +28,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 ## Templates
 - [Project compatibility matrix](templates/project-compatibility-matrix.md)
 - [Work estimate record](templates/work-estimate-record.md)
+- [Session checkpoint](templates/session-checkpoint.md)
 
 ## Integrations
 - [ChatGPT](integrations/chatgpt.md)
