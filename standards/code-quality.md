@@ -8,5 +8,6 @@
 - Preserve backward compatibility unless a breaking change is requested and documented.
 - Handle expected failure paths and provide actionable errors without leaking internals.
 - Keep UI changes consistent with the project's design system and existing components.
+- Make source, file I/O, serialization, and generated-artifact encodings explicit where text crosses runtime or system boundaries; follow the [Text Encoding and Unicode Compatibility](text-encoding-policy.md) standard.
 - Update documentation when behavior, setup, configuration, or operational procedures change.
 - Do not silently change public APIs, database contracts, or external integrations.

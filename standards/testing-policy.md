@@ -9,4 +9,5 @@
 - Distinguish automated tests, manual verification, static inspection, and checks not run.
 - If a check cannot run, report the exact blocker and the residual risk.
 - Do not claim complete verification based only on a successful build or visual inspection.
+- For text-processing behavior, test encoding and decoding at the relevant file boundaries using explicit encodings; include Unicode round-trip cases where Unicode support is claimed. Apply the [Text Encoding and Unicode Compatibility](text-encoding-policy.md) standard, including source-file compatibility for the oldest supported runtime.
 - For data changes, inspect migration safety, rollback implications, constraints, and data integrity. Do not run destructive operations against shared or production data without approval.
