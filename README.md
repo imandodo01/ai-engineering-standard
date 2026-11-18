@@ -18,6 +18,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 - [Testing and verification](standards/testing-policy.md)
 - [Security and safety](standards/security-policy.md)
 - [Code quality](standards/code-quality.md)
+- [Estimation and progress tracking](standards/estimation-and-progress-tracking.md)
 - [Completion report](workflows/completion-report.md)
 
 ## Integrations
