@@ -12,6 +12,7 @@
 - Preserve pre-existing user changes.
 
 ## 3. Plan
+- For effort and progress records, follow [Estimation and Progress Tracking](../standards/estimation-and-progress-tracking.md); use focused person-hours for effort and keep elapsed time and capacity distinct.
 - For multi-step or risky work, outline a short implementation plan and key risks.
 - Choose the smallest coherent approach.
 - Identify verification steps before coding.
