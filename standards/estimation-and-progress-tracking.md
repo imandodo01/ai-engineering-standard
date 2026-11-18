@@ -131,6 +131,8 @@ Refine estimates when evidence changes; preserve the original baseline and expla
 
 ## Related guidance
 
+- [Work Estimate Record template](../templates/work-estimate-record.md)
+
 - [Development Workflow](../workflows/development-workflow.md)
 - [Parallel Workstream Development](../workflows/parallel-workstream-development.md)
 - [Testing and Verification Policy](testing-policy.md)
