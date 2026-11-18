@@ -73,6 +73,14 @@ Use a small, consistent status vocabulary:
 - **Deferred:** intentionally moved out of the current plan.
 - **Cancelled:** no longer required; record the reason.
 
+For each deliverable, distinguish three states rather than collapsing them into one progress label:
+
+- **Implemented:** the change or artifact exists. This says nothing by itself about test results or acceptance.
+- **Verified:** the required checks were actually executed and passed. Record partial, failed, or blocked verification explicitly.
+- **Accepted:** the acceptance criteria are satisfied, evidence is recorded, and any required review or owner sign-off is complete.
+
+A deliverable may be implemented but not verified, or verified but awaiting acceptance. Do not mark it **Completed** until the project's completion criteria are satisfied. If a project uses a different lifecycle, map its statuses explicitly rather than silently conflating them.
+
 Progress updates should state what changed, what evidence supports it, what remains, and whether the forecast moved. Avoid unsupported percentage-complete values. For multi-part deliverables, track completed and remaining acceptance criteria or work items instead.
 
 A task is not complete merely because code was written, a build passed, or a PR was opened. Apply the repository's testing and completion-report policies.
@@ -132,7 +140,7 @@ Refine estimates when evidence changes; preserve the original baseline and expla
 ## Related guidance
 
 - [Work Estimate Record template](../templates/work-estimate-record.md)
-
+- [Project Compatibility Matrix template](../templates/project-compatibility-matrix.md)
 - [Development Workflow](../workflows/development-workflow.md)
 - [Parallel Workstream Development](../workflows/parallel-workstream-development.md)
 - [Testing and Verification Policy](testing-policy.md)

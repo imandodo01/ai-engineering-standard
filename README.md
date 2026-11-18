@@ -23,6 +23,10 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 - [Estimation and progress tracking](standards/estimation-and-progress-tracking.md)
 - [Completion report](workflows/completion-report.md)
 
+## Templates
+- [Project compatibility matrix](templates/project-compatibility-matrix.md)
+- [Work estimate record](templates/work-estimate-record.md)
+
 ## Integrations
 - [ChatGPT](integrations/chatgpt.md)
 - [OpenAI Codex](integrations/codex.md)

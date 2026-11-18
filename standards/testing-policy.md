@@ -10,4 +10,5 @@
 - If a check cannot run, report the exact blocker and the residual risk.
 - Do not claim complete verification based only on a successful build or visual inspection.
 - For text-processing behavior, test encoding and decoding at the relevant file boundaries using explicit encodings; include Unicode round-trip cases where Unicode support is claimed. Apply the [Text Encoding and Unicode Compatibility](text-encoding-policy.md) standard, including source-file compatibility for the oldest supported runtime.
+- For cross-runtime or cross-platform projects, verify the oldest supported environment when practical and record exact tested versions. Keep support claims distinct from environments actually tested; use the [Project Compatibility Matrix template](../templates/project-compatibility-matrix.md) when a durable matrix is useful.
 - For data changes, inspect migration safety, rollback implications, constraints, and data integrity. Do not run destructive operations against shared or production data without approval.

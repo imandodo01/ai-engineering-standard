@@ -10,6 +10,7 @@
 - Read applicable agent/project instructions.
 - Inspect relevant code paths, data models, migrations, tests, dependencies, and Git status.
 - Identify existing conventions and likely regression surfaces.
+- Inspect the project's compatibility matrix when one exists and the change touches supported runtimes, platforms, or dependency constraints. If no matrix exists and compatibility materially affects the change, record the support and tested environments in the project's documentation.
 - Preserve pre-existing user changes.
 
 ## 3. Plan
@@ -31,6 +32,7 @@
 - Run focused tests first, then broader relevant checks when practical.
 - Verify each work item against its own acceptance criteria and run CI/review as soon as it is ready; do not defer all verification until every workstream finishes.
 - Isolate mutable test resources when checks run concurrently.
+- Verify on the oldest supported runtime/platform when compatibility risk is material; record exact versions and environment for each meaningful result.
 - After integration, run cross-workstream regression checks against the combined result.
 - Review the diff for correctness, accidental changes, secrets, debug code, and consistency.
 - Fix issues found and rerun affected checks.
@@ -44,3 +46,5 @@
 
 ## 7. Report
 - Summarize behavior delivered, important files/areas, checks and outcomes, known gaps, and commit hash/message when applicable.
+- Distinguish implementation state, verification state, and acceptance state; do not describe work as complete solely because implementation exists.
+- For unfinished multi-session work, provide a concise handoff with current branch/commit, completed work and evidence, accepted decisions, assumptions or blockers, unverified items, and the next actionable step.
