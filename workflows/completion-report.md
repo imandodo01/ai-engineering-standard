@@ -30,8 +30,9 @@ State whether changes were committed. If yes, include commit message and short h
 List known limitations, unresolved questions, follow-up work, or state "None known" only when justified.
 
 ## Continuation handoff
-Include this section when work is unfinished or likely to continue in another session:
+Include this section when work is unfinished or likely to continue in another session. Follow [Session Continuity and Recovery](session-continuity.md) and use [Session Checkpoint](../templates/session-checkpoint.md) for the durable project record:
 - Current branch and commit:
+- Checkpoint location and last-updated time:
 - Completed work and evidence:
 - Accepted decisions:
 - Assumptions / unresolved questions:
