@@ -4,6 +4,7 @@
 - Restate the goal internally; identify acceptance criteria, constraints, and out-of-scope areas.
 - Resolve only ambiguities that materially affect correctness, safety, or architecture.
 - Distinguish facts from assumptions.
+- Apply [Context-Aware Interaction and Clarification](context-aware-interaction.md): use relevant established context, avoid repeat questions, group related decisions into coherent packages, and preserve explicit approval for consequential choices.
 
 ## 2. Inspect
 - Read applicable agent/project instructions.

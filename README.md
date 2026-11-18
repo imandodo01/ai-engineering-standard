@@ -14,6 +14,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 ## Policies
 - [Engineering principles](principles/engineering-principles.md)
 - [Development workflow](workflows/development-workflow.md)
+- [Context-aware interaction and clarification](workflows/context-aware-interaction.md)
 - [Git policy](standards/git-policy.md)
 - [Testing and verification](standards/testing-policy.md)
 - [Security and safety](standards/security-policy.md)
