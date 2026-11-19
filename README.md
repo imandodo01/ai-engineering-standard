@@ -17,6 +17,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 - [Development workflow](workflows/development-workflow.md)
 - [Context-aware interaction and clarification](workflows/context-aware-interaction.md)
 - [Session continuity and recovery](workflows/session-continuity.md)
+- [Multi-environment development and validation](workflows/multi-environment-development.md)
 - [Text encoding and Unicode compatibility](standards/text-encoding-policy.md)
 - [Git policy](standards/git-policy.md)
 - [Testing and verification](standards/testing-policy.md)
