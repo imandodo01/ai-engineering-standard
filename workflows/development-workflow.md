@@ -20,6 +20,7 @@
 - Identify verification steps before coding.
 - When work contains multiple deliverables, map dependencies, shared-file/API/schema conflicts, and independent verification boundaries before deciding what can run concurrently.
 - Define development, CI, secondary-verification, and user-acceptance environment roles where work spans environments; use [Multi-Environment Development and Validation](multi-environment-development.md) and record the exact commit and environment for each result.
+- When runtime or dependency discovery could delay implementation, apply [Dependency Preparation and Parallel Implementation](dependency-preparation-and-parallel-implementation.md): classify dependency confidence, start environment preparation early, and proceed with independent implementation without waiting on non-blocking checks.
 - Use the [Parallel Workstream Development](parallel-workstream-development.md) workflow when parallel execution can reduce waiting without increasing integration risk.
 
 ## 4. Implement
