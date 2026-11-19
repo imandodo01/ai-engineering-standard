@@ -155,7 +155,22 @@ For every meaningful result, record:
 
 If a new commit changes the tested code, do not carry forward a passing result as if it applied to the new commit. Identify which checks need to be repeated.
 
-## 9. Completion and handoff
+## 9. Continue independent implementation while validation is pending
+
+A work item waiting for secondary verification or user acceptance does not automatically require the entire development effort to stop.
+
+- Continue implementation on a separate focused branch when the next work item is genuinely independent of the pending change.
+- Before proceeding, map dependencies and shared surfaces using [Parallel Workstream Development](parallel-workstream-development.md). Independence must be demonstrated from code paths, contracts, schema, migrations, APIs, configuration, and runtime behavior—not inferred from different feature names.
+- Do not build dependent work on an unaccepted or unstable contract unless the dependency is explicitly treated as provisional and the resulting rework risk is accepted.
+- Keep the pending branch intact and available for validation. Do not merge it merely to unblock unrelated work.
+- Use separate branches and PRs for independent deliverables. Record their dependency relationship and intended integration order.
+- Limit work in progress to what can be meaningfully implemented, reviewed, and verified. Do not create branches just to keep busy.
+- If validation finds a defect in a shared contract or upstream behavior, pause or reassess downstream work that depends on it. Preserve unrelated independent work.
+- Each branch still needs its own technical verification and acceptance gates. Parallel implementation does not waive tests, review, CI, or user acceptance.
+
+The practical rule is: **do not wait idle for an independent validation result, but do not pretend dependent work is safe before its prerequisite is accepted.**
+
+## 10. Completion and handoff
 
 A work item is complete only when its project-defined implementation, verification, review, and acceptance gates are satisfied. If user acceptance is required and still pending, report the implementation and verification accurately while leaving acceptance pending.
 
