@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add a dependency preparation and parallel implementation workflow so dependency discovery and environment setup do not unnecessarily block independent implementation; define confidence levels, confirmation thresholds, readiness states, and verification gates.
 - Add a multi-environment development and validation workflow covering environment roles, single-writer branch handoffs, commit-bound verification evidence, user-acceptance holds, and validation traceability.
 - Add a session continuity and recovery workflow with context-pressure handling, durable checkpoints, resume-time state reconciliation, and explicit limitations around automatic detection/saving.
 - Add a portable session checkpoint template and integrate checkpoint creation/recovery into the agent entry point, development workflow, completion reports, and ChatGPT/Codex guidance.
