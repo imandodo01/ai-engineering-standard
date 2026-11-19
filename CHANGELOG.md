@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add a multi-environment development and validation workflow covering environment roles, single-writer branch handoffs, commit-bound verification evidence, user-acceptance holds, and validation traceability.
 - Add a session continuity and recovery workflow with context-pressure handling, durable checkpoints, resume-time state reconciliation, and explicit limitations around automatic detection/saving.
 - Add a portable session checkpoint template and integrate checkpoint creation/recovery into the agent entry point, development workflow, completion reports, and ChatGPT/Codex guidance.
 - Add a reusable project compatibility matrix and clarify the difference between supported environments and environments actually tested.
