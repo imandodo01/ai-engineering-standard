@@ -21,10 +21,13 @@ Do not infer verification from implementation, or acceptance from a successful t
 Important files, modules, or architectural decisions. Avoid dumping every filename when not useful.
 
 ## Verification
-List commands/checks actually run and their results. Separate automated tests from manual checks. Explicitly list checks not run and why. Include relevant runtime/platform versions when compatibility is part of the change.
+List commands/checks actually run and their results. Separate automated tests from manual checks. Explicitly list checks not run and why. Include relevant runtime/platform versions when compatibility is part of the change. When multiple environments are involved, record each environment role, exact tested commit SHA, relevant versions, and result; do not transfer a passing result to a later commit without rerunning affected checks.
 
 ## Git
 State whether changes were committed. If yes, include commit message and short hash. If not, say so when relevant.
+
+## Acceptance evidence
+When user or domain-owner acceptance is required, record the owner, acceptance criteria, result (Pending / Accepted / Rejected / Changes Requested / Deferred), date, and evidence. Do not infer acceptance from CI or automated tests.
 
 ## Remaining work and risks
 List known limitations, unresolved questions, follow-up work, or state "None known" only when justified.
