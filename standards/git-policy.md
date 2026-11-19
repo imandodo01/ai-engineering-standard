@@ -6,6 +6,15 @@
 - Inspect `git status` and the diff before staging or committing.
 - Do not stage the entire repository blindly; stage only files belonging to the task.
 
+## Branch ownership and environment handoff
+
+- Use one active writer per branch. Do not independently edit or commit the same branch from multiple machines or environments at the same time.
+- Before another environment resumes work, fetch and reconcile the actual branch, commit, working-tree state, and uncommitted changes.
+- For remote validation, publish a coherent commit and record the exact SHA. Validation evidence applies only to the SHA actually tested.
+- If a fix is needed after validation, designate one writer, publish the new commit, and rerun affected checks against that revision.
+- Keep branches containing unmerged work or work awaiting required validation. Do not delete, force-push, or rewrite them merely to resolve a synchronization problem.
+- See [Multi-Environment Development and Validation](../workflows/multi-environment-development.md) for the full handoff and acceptance lifecycle.
+
 ## Logical commits
 - Prefer one commit for one coherent logical unit of work.
 - A feature spanning controller, model, migration, UI, and tests should normally be one commit when those changes form one deliverable.

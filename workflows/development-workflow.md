@@ -19,6 +19,7 @@
 - Choose the smallest coherent approach.
 - Identify verification steps before coding.
 - When work contains multiple deliverables, map dependencies, shared-file/API/schema conflicts, and independent verification boundaries before deciding what can run concurrently.
+- Define development, CI, secondary-verification, and user-acceptance environment roles where work spans environments; use [Multi-Environment Development and Validation](multi-environment-development.md) and record the exact commit and environment for each result.
 - Use the [Parallel Workstream Development](parallel-workstream-development.md) workflow when parallel execution can reduce waiting without increasing integration risk.
 
 ## 4. Implement
@@ -27,6 +28,7 @@
 - Add validation, authorization, error handling, and transaction boundaries where required.
 - Avoid unrelated formatting churn and dependency changes.
 - Implement independent work items in separate, focused branches/PRs where the repository workflow supports it. Coordinate shared contracts and high-conflict files rather than editing them concurrently.
+- For work that moves between environments, maintain one active writer per branch and transfer ownership explicitly; never assume two local branches with the same name are synchronized.
 
 ## 5. Verify
 - Run focused tests first, then broader relevant checks when practical.
@@ -37,6 +39,8 @@
 - Review the diff for correctness, accidental changes, secrets, debug code, and consistency.
 - Fix issues found and rerun affected checks.
 - If execution is blocked, explain exactly what could not be verified.
+- When checks run in different environments, bind each result to the exact tested commit SHA and record relevant runtime/tool versions. Re-run affected checks when the branch advances.
+- Keep user acceptance distinct from implementation and technical verification; leave acceptance pending when the required owner has not yet validated the result.
 
 ## 6. Commit (when requested or authorized)
 - Commit a coherent logical unit, not each individual file.
@@ -48,3 +52,10 @@
 - Summarize behavior delivered, important files/areas, checks and outcomes, known gaps, and commit hash/message when applicable.
 - Distinguish implementation state, verification state, and acceptance state; do not describe work as complete solely because implementation exists.
 - For unfinished multi-session work, provide a concise handoff with current branch/commit, completed work and evidence, accepted decisions, assumptions or blockers, unverified items, and the next actionable step.
+
+## 8. Maintain session continuity
+- Apply [Session Continuity and Recovery](session-continuity.md) for work likely to span sessions, agent runs, context windows, or providers.
+- Create or refresh a checkpoint at meaningful milestones, after important decisions or verification results, and before a planned interruption or handoff.
+- When context pressure is observable, prioritize checkpointing before starting more substantial work. Never invent token telemetry or claim that the interface will automatically save before a hard cutoff.
+- Store project-specific checkpoints in the project's designated durable location using [Session Checkpoint](../templates/session-checkpoint.md). Keep them portable, factual, and free of secrets.
+- On resume, verify the checkpoint against current Git and project state before acting. A checkpoint is evidence to reconcile, not permission to overwrite newer work.
