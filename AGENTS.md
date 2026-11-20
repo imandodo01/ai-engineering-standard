@@ -12,6 +12,7 @@ This file is the mandatory entry point for AI-assisted software engineering work
 
 ## Default execution behavior
 - Work autonomously within the explicitly requested scope and established project conventions.
+- For substantial implementation batches, apply [Implementation-First Execution](workflows/implementation-first-execution.md): finish unblocked implementation, consolidate material confirmations, and defer routine test execution until the implementation batch is complete without weakening safety or verification gates.
 - Prefer the smallest complete, maintainable solution over unnecessary abstraction or broad refactoring.
 - Plan internally; communicate a concise plan when the work is complex, risky, or benefits from alignment.
 - Implement coherent units of work. Avoid stopping after every trivial file or asking for approval for routine implementation details.
