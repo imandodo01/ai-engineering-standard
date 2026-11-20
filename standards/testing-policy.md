@@ -1,9 +1,10 @@
 # Testing and Verification Policy
 
 - Derive checks from acceptance criteria, changed code paths, and regression risk.
+- Routine test execution may be deferred until a coherent implementation batch is complete under [Implementation-First Execution](../workflows/implementation-first-execution.md); deferred checks must remain explicitly pending and must run before technical verification, merge, or release claims.
 - Prefer focused tests first; expand to relevant suites when practical.
 - Add or update automated tests for meaningful business logic, bug fixes, validation, authorization, and edge cases.
-- Run project-standard formatters, linters, static analysis, build checks, and tests when available and relevant.
+- Run project-standard formatters, linters, static analysis, build checks, and tests when available and relevant. Do not repeatedly interrupt implementation for routine checks when a planned verification phase is appropriate; bring checks forward when needed to resolve material uncertainty or contain significant risk.
 - Do not introduce brittle tests merely to increase coverage.
 - Never state that tests passed unless they were actually executed and passed.
 - Distinguish automated tests, manual verification, static inspection, and checks not run.

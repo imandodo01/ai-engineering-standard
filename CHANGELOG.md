@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add an implementation-first execution workflow: complete unblocked implementation, consolidate material confirmations, and defer routine test execution to a planned verification phase without weakening safety or completion gates.
 - Add security and testing guidance for MFA enrollment, TOTP replay prevention, encrypted secrets, one-time recovery codes, rate limits, and safe migration between factors.
 - Add a dependency preparation and parallel implementation workflow so dependency discovery and environment setup do not unnecessarily block independent implementation; define confidence levels, confirmation thresholds, readiness states, and verification gates.
 - Add a multi-environment development and validation workflow covering environment roles, single-writer branch handoffs, commit-bound verification evidence, user-acceptance holds, and validation traceability.

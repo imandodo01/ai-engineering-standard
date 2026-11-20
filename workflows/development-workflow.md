@@ -24,6 +24,9 @@
 - Use the [Parallel Workstream Development](parallel-workstream-development.md) workflow when parallel execution can reduce waiting without increasing integration risk.
 
 ## 4. Implement
+
+For implementation batches where routine test execution would fragment progress, apply [Implementation-First Execution](implementation-first-execution.md): complete unblocked work, maintain a consolidated pending-confirmations list, and defer the testing phase until the batch is complete. This changes sequencing, not the requirement to verify before claiming technical completion, merge, or release. Bring checks forward when needed to resolve a material design question or contain a high risk.
+
 - Keep changes within scope.
 - Reuse existing abstractions and UI patterns.
 - Add validation, authorization, error handling, and transaction boundaries where required.
