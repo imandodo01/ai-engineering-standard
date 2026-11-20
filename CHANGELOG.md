@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add security and testing guidance for MFA enrollment, TOTP replay prevention, encrypted secrets, one-time recovery codes, rate limits, and safe migration between factors.
 - Add a dependency preparation and parallel implementation workflow so dependency discovery and environment setup do not unnecessarily block independent implementation; define confidence levels, confirmation thresholds, readiness states, and verification gates.
 - Add a multi-environment development and validation workflow covering environment roles, single-writer branch handoffs, commit-bound verification evidence, user-acceptance holds, and validation traceability.
 - Add a session continuity and recovery workflow with context-pressure handling, durable checkpoints, resume-time state reconciliation, and explicit limitations around automatic detection/saving.
