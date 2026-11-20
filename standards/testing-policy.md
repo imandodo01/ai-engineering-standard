@@ -13,3 +13,19 @@
 - For text-processing behavior, test encoding and decoding at the relevant file boundaries using explicit encodings; include Unicode round-trip cases where Unicode support is claimed. Apply the [Text Encoding and Unicode Compatibility](text-encoding-policy.md) standard, including source-file compatibility for the oldest supported runtime.
 - For cross-runtime or cross-platform projects, verify the oldest supported environment when practical and record exact tested versions. Keep support claims distinct from environments actually tested; use the [Project Compatibility Matrix template](../templates/project-compatibility-matrix.md) when a durable matrix is useful.
 - For data changes, inspect migration safety, rollback implications, constraints, and data integrity. Do not run destructive operations against shared or production data without approval.
+
+## Authentication and MFA verification
+
+For authentication or MFA changes, derive tests from the factor lifecycle and threat model. Where applicable, cover:
+
+- Enrollment requires an authenticated user and recent re-authentication; an unconfirmed factor must not satisfy login.
+- TOTP implementation matches RFC 6238 reference vectors and the documented algorithm, digits, and period.
+- Clock-window behavior is bounded and explicit; expired, malformed, and out-of-window codes are rejected.
+- A successfully accepted TOTP time-step cannot be replayed, including concurrent submissions.
+- Recovery codes are shown only at issuance, stored as hashes, accepted once, and invalidated when regenerated.
+- Rate limits apply to login challenges, enrollment confirmation, and recovery-code operations.
+- Existing MFA methods remain functional during migration and are replaced only after the new factor is confirmed.
+- Disabling MFA or replacing a factor requires the intended re-authentication and clears or rotates the associated secrets and recovery material.
+- Secrets, provisioning URIs, and recovery codes do not appear in logs, ordinary API responses, or persistent plaintext storage.
+
+Test both positive and negative paths. Use deterministic RFC test vectors or a controlled clock rather than relying on timing-sensitive sleeps. Where concurrency guarantees depend on the production cache or database driver, add backend-specific integration coverage or document the unverified production constraint; an in-memory test driver alone does not prove distributed locking behavior.
