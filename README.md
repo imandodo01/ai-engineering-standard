@@ -15,6 +15,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 ## Policies
 - [Engineering principles](principles/engineering-principles.md)
 - [Development workflow](workflows/development-workflow.md)
+- [Implementation-first execution](workflows/implementation-first-execution.md)
 - [Dependency preparation and parallel implementation](workflows/dependency-preparation-and-parallel-implementation.md)
 - [Context-aware interaction and clarification](workflows/context-aware-interaction.md)
 - [Session continuity and recovery](workflows/session-continuity.md)
