@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Capture a provider-independent Context Management and Scope Isolation design proposal covering layered context, explicit read/change/decision boundaries, traceable records, uncertainty classification, feature registry, agent workflow, and phased adoption. The proposal is not yet a mandatory operational policy.
 - Add an implementation-first execution workflow: complete unblocked implementation, consolidate material confirmations, and defer routine test execution to a planned verification phase without weakening safety or completion gates.
 - Add security and testing guidance for MFA enrollment, TOTP replay prevention, encrypted secrets, one-time recovery codes, rate limits, and safe migration between factors.
 - Add a dependency preparation and parallel implementation workflow so dependency discovery and environment setup do not unnecessarily block independent implementation; define confidence levels, confirmation thresholds, readiness states, and verification gates.
@@ -11,7 +12,7 @@
 - Distinguish implementation, verification, and acceptance states; strengthen completion reports and multi-session handoff requirements.
 - Add a text encoding and Unicode compatibility policy covering explicit file encodings, runtime-specific source parsing, Unicode round-trip tests, and evidence-based diagnosis of text corruption.
 - Add context-aware interaction and clarification guidance for using established context, asking only material questions, grouping related decisions, preserving user agency, and avoiding confirmation loops.
-- Add a project-agnostic estimation and progress tracking standard, including effort units, baseline/forecast separation, capacity planning, evidence-based status, and a reusable work estimate record.
+- Add a project-agnostic estimation and progress tracking standard, including effort units, focused person-hours, capacity planning, evidence-based status, and a reusable work estimate record.
 
 ## 0.1.0 — Initial baseline
 - Establish repository purpose and agent entry point.

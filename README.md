@@ -28,6 +28,9 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 - [Estimation and progress tracking](standards/estimation-and-progress-tracking.md)
 - [Completion report](workflows/completion-report.md)
 
+## Design proposals
+- [Context Management and Scope Isolation](proposals/context-management-and-scope-isolation.md) — proposed architecture for layered context, explicit read/change/decision boundaries, traceable records, and provider-independent context delivery. This is a design proposal, not yet a mandatory operational policy.
+
 ## Templates
 - [Project compatibility matrix](templates/project-compatibility-matrix.md)
 - [Work estimate record](templates/work-estimate-record.md)
