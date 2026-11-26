@@ -7,7 +7,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 
 ## Start here
 1. Read [AGENTS.md](AGENTS.md) before software engineering work.
-2. Load only the policy documents relevant to the task.
+2. Load only the policy documents relevant to the requested task.
 3. Inspect the target repository and follow its established conventions.
 4. Treat project-local instructions as specialization, not permission to weaken safety or verification requirements.
 5. For resumed or transferred work, follow [Session Continuity and Recovery](workflows/session-continuity.md) and validate the latest checkpoint against the actual project state.
@@ -21,6 +21,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 - [Session continuity and recovery](workflows/session-continuity.md)
 - [Multi-environment development and validation](workflows/multi-environment-development.md)
 - [Text encoding and Unicode compatibility](standards/text-encoding-policy.md)
+- [Feature discovery and registry](standards/feature-discovery-and-registry.md)
 - [Git policy](standards/git-policy.md)
 - [Testing and verification](standards/testing-policy.md)
 - [Security and safety](standards/security-policy.md)
@@ -34,6 +35,8 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 ## Templates
 - [Project compatibility matrix](templates/project-compatibility-matrix.md)
 - [Work estimate record](templates/work-estimate-record.md)
+- [Feature Registry](templates/feature-registry.md)
+- [Feature Brief](templates/feature-brief.md)
 - [Session checkpoint](templates/session-checkpoint.md)
 
 ## Integrations
