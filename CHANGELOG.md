@@ -1,7 +1,8 @@
 # Changelog
 
 ## Unreleased
-- Capture a provider-independent Context Management and Scope Isolation design proposal covering layered context, explicit read/change/decision boundaries, traceable records, uncertainty classification, feature registry, agent workflow, and phased adoption. The proposal is not yet a mandatory operational policy.
+- Add a project-level Feature Discovery and Registry standard with separate decision and delivery lifecycles, triage/prioritization guidance, traceability requirements, and portable Feature Registry and Feature Brief templates. Integrate discovery capture into the development workflow and context-management proposal.
+- Capture a provider-independent Context Management and Scope Isolation design proposal covering layered context, explicit read/change/decision boundaries, lightweight records, traceable records, uncertainty classification, feature registry, agent workflow, and phased adoption. The proposal is not yet a mandatory operational policy.
 - Add an implementation-first execution workflow: complete unblocked implementation, consolidate material confirmations, and defer routine test execution to a planned verification phase without weakening safety or completion gates.
 - Add security and testing guidance for MFA enrollment, TOTP replay prevention, encrypted secrets, one-time recovery codes, rate limits, and safe migration between factors.
 - Add a dependency preparation and parallel implementation workflow so dependency discovery and environment setup do not unnecessarily block independent implementation; define confidence levels, confirmation thresholds, readiness states, and verification gates.

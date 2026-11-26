@@ -5,6 +5,7 @@
 - Resolve only ambiguities that materially affect correctness, safety, or architecture.
 - Distinguish facts from assumptions.
 - Apply [Context-Aware Interaction and Clarification](context-aware-interaction.md): use relevant established context, avoid repeat questions, group related decisions into coherent packages, and preserve explicit approval for consequential choices.
+- When discovery reveals a new actionable requirement, defect, or improvement, follow [Feature Discovery and Registry](../standards/feature-discovery-and-registry.md). Capture it in the project's authoritative registry before it is lost; recording it does not approve or schedule implementation.
 
 ## 2. Inspect
 - Read applicable agent/project instructions.
@@ -22,6 +23,7 @@
 - Define development, CI, secondary-verification, and user-acceptance environment roles where work spans environments; use [Multi-Environment Development and Validation](multi-environment-development.md) and record the exact commit and environment for each result.
 - When runtime or dependency discovery could delay implementation, apply [Dependency Preparation and Parallel Implementation](dependency-preparation-and-parallel-implementation.md): classify dependency confidence, start environment preparation early, and proceed with independent implementation without waiting on non-blocking checks.
 - Use the [Parallel Workstream Development](parallel-workstream-development.md) workflow when parallel execution can reduce waiting without increasing integration risk.
+- For accepted registry items entering a plan, confirm scope, dependencies, priority rationale, estimate, and observable acceptance criteria. Do not treat every accepted idea as a delivery commitment.
 
 ## 4. Implement
 

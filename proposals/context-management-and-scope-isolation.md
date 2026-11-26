@@ -51,7 +51,7 @@ These are record types, not necessarily separate files. Combine them for small t
 | Decision Log | Confirmed decisions, rationale, owner, date, and superseded decisions |
 | Execution Record | Task scope, assumptions, pending questions, changed areas, verification evidence, and handoff |
 
-A **Feature Registry** can index features and link to their briefs. It should not duplicate their requirements.
+A **Feature Registry** indexes discovered and decided work items and links to their briefs. It is the project's authoritative discovery/backlog index, not a duplicate requirements document or a substitute for an issue tracker.
 
 ### Minimum task brief
 
@@ -84,10 +84,11 @@ Only the affected work should be blocked when other work can safely continue.
 4. Confirm read scope, change scope, and decision authority.
 5. Investigate missing context within the allowed read scope.
 6. Record assumptions and unresolved decisions.
-7. Implement clear, authorized work; isolate blocked work.
-8. Consolidate questions that need human decisions.
-9. Verify against acceptance criteria and record evidence against the relevant revision.
-10. Report what was implemented, verified, accepted, and left unresolved.
+7. When a new actionable requirement, defect, or improvement is found, capture it in the project's authoritative Feature Registry using [Feature Discovery and Registry](../standards/feature-discovery-and-registry.md). Check for duplicates and preserve the source. Capture is not approval to implement.
+8. Implement clear, authorized work; isolate blocked work.
+9. Consolidate questions that need human decisions.
+10. Verify against acceptance criteria and record evidence against the relevant revision.
+11. Report what was implemented, verified, accepted, and left unresolved.
 
 This works alongside the existing Development, Context-Aware Interaction, Implementation-First Execution, Dependency Preparation, and Session Continuity workflows. It does not replace them.
 
@@ -99,6 +100,8 @@ For work that spans tasks or sessions:
 - Link evidence to the commit/revision and environment tested.
 - Keep historical decisions rather than silently rewriting material changes.
 - Never store credentials or unnecessary sensitive information in context records.
+
+Follow [Feature Discovery and Registry](../standards/feature-discovery-and-registry.md) for decision and delivery states, triage, prioritization, and registry maintenance.
 
 ## 7. Storage and portability
 
@@ -122,6 +125,8 @@ Validate with varied and anonymized examples. Do not encode one organization's p
 ## 9. Success criteria
 
 The design is successful when an agent can identify relevant authoritative context, explain what it may read/change/decide, avoid unauthorized scope expansion, continue safe independent work, and leave enough records for another agent or session to resume and verify the result.
+
+Feature discovery and registry usage succeeds when actionable findings are captured with their sources, decisions are explicit, accepted ideas are not mistaken for commitments, and delivery can be traced to evidence without maintaining competing backlogs.
 
 ## Open questions for M2–M4
 
