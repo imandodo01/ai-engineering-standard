@@ -16,7 +16,29 @@ This standard applies across providers and tools. Examples include hosted CI run
 6. **Preserve operational safety.** Cost approval does not replace approvals required for production, security, data, access-control, or destructive actions.
 7. **Review abnormal usage.** Investigate unexpected cost, repeated failures, runaway jobs, and usage that materially exceeds the estimate.
 
-## 1. Before using paid or metered resources
+## 1. Free-first resource strategy
+
+Prefer the lowest-cost option that fully satisfies the task's functional, security, quality, reliability, privacy, and operational requirements. Evaluate options in this order:
+
+1. **Existing local resources** already available and suitable for the task.
+2. **Existing included resources** covered by an active subscription, organizational plan, or approved allowance, provided the incremental usage is genuinely included.
+3. **Free hosted services or free tiers** that meet the requirements and have understood limits.
+4. **Low-cost paid options** when free or included options are inadequate.
+5. **Material paid options** only after the approval required by this policy.
+
+Apply these rules:
+
+- Do not select a paid service when a free or already-included option meets the acceptance criteria without meaningful additional risk or operational burden.
+- Prefer local execution, caching, reuse, smaller adequate models, and bounded workloads when they preserve the required outcome.
+- Do not purchase an upgrade solely for convenience when a reasonable free or included alternative exists.
+- Treat free tiers as quota-limited resources, not as unlimited capacity or a guarantee of zero cost. Check overage behavior, billing activation, retention, rate limits, data handling, and whether usage can spill into paid billing.
+- Do not create a new paid account, enable billing, activate a trial that may convert to paid, or incur a charge merely to access a free tier without checking the terms and obtaining approval when exposure may be material.
+- Do not sacrifice security, privacy, correctness, required verification, reliability, or maintainability merely to avoid spending money.
+- If no free option adequately meets the requirements, explain the specific limitation and compare the lowest-cost adequate alternatives under the approval rules below.
+
+The goal is **free-first, not free-at-all-costs**. Cost is an optimization constraint, not a reason to deliver an unsafe or inadequate result.
+
+## 2. Before using paid or metered resources
 
 Identify, where applicable:
 
@@ -28,7 +50,7 @@ Identify, where applicable:
 
 Do not spend time producing a false-precision estimate for trivial usage. For potentially material exposure, make the uncertainty explicit and seek a bounded alternative where possible.
 
-## 2. Risk tiers and execution authority
+## 3. Risk tiers and execution authority
 
 Classify the expected financial exposure and downside, using the project's or user's configured thresholds where available.
 
@@ -42,7 +64,7 @@ The user or project owner may define monetary thresholds, provider-specific quot
 
 If the cost cannot be estimated and the plausible downside may be material, do not start the chargeable operation. Explain what is unknown and ask for approval or propose a bounded alternative.
 
-## 3. What approval must cover
+## 4. What approval must cover
 
 For Moderate or High exposure when no applicable authorization exists, provide a concise decision summary containing:
 
@@ -56,7 +78,7 @@ Ask for explicit approval before initiating the chargeable work. Approval should
 
 A previous approval does not authorize a higher cap, a new provider, a different purpose, a recurring schedule, or materially expanded usage. Seek renewed approval when the scope or expected exposure materially changes.
 
-## 4. Resource controls
+## 5. Resource controls
 
 Use controls appropriate to the resource. Examples include:
 
@@ -75,7 +97,7 @@ Use controls appropriate to the resource. Examples include:
 
 Do not remove necessary coverage, security checks, or verification solely to reduce cost. Optimize duplication and resource sizing before weakening quality gates.
 
-## 5. Monitoring and stop conditions
+## 6. Monitoring and stop conditions
 
 For resources with meaningful ongoing or cumulative cost:
 
@@ -88,7 +110,7 @@ For resources with meaningful ongoing or cumulative cost:
 
 If a provider offers alerts but not a hard spending stop, describe the difference. Alerts are notifications, not guarantees that spending will stop.
 
-## 6. Abnormal usage and incident handling
+## 7. Abnormal usage and incident handling
 
 When usage or cost is unexpectedly high:
 
@@ -101,7 +123,7 @@ When usage or cost is unexpectedly high:
 
 Do not delete evidence or billing records while investigating.
 
-## 7. Records and review
+## 8. Records and review
 
 For material or recurring cost exposure, record:
 
@@ -116,11 +138,13 @@ A lightweight note in the project's existing issue, feature brief, work estimate
 
 Review this policy when a project introduces a new paid provider, recurring workload, expensive runner/resource, or materially different usage pattern.
 
-## 8. Agent requirements
+## 9. Agent requirements
 
 AI agents must:
 
 - Identify potentially chargeable actions before executing them.
+- Prefer free or already-included resources first when they adequately satisfy the requirements.
+- Check free-tier quotas, overage behavior, billing activation, and relevant data/security limitations rather than assuming free means unlimited or risk-free.
 - Proceed autonomously with low-cost, bounded work that fits an established allowance or authorization.
 - Obtain explicit approval for high-cost work and for moderate work outside an established budget.
 - Ask before initiating material chargeable work when cost is unknown and cannot be bounded.
