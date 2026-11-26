@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add a provider-independent Cost-Aware Automation and Resource Governance standard covering cost tiers, scoped approval, resource limits, monitoring, stop conditions, and abnormal-usage handling; integrate it into the agent entry point and development workflow.
 - Add a project-level Feature Discovery and Registry standard with separate decision and delivery lifecycles, triage/prioritization guidance, traceability requirements, and portable Feature Registry and Feature Brief templates. Integrate discovery capture into the development workflow and context-management proposal.
 - Capture a provider-independent Context Management and Scope Isolation design proposal covering layered context, explicit read/change/decision boundaries, lightweight records, traceable records, uncertainty classification, feature registry, agent workflow, and phased adoption. The proposal is not yet a mandatory operational policy.
 - Add an implementation-first execution workflow: complete unblocked implementation, consolidate material confirmations, and defer routine test execution to a planned verification phase without weakening safety or completion gates.
