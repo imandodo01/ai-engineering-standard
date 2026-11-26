@@ -18,6 +18,7 @@
 - For effort and progress records, follow [Estimation and Progress Tracking](../standards/estimation-and-progress-tracking.md); use focused person-hours for effort and keep elapsed time and capacity distinct.
 - For multi-step or risky work, outline a short implementation plan and key risks.
 - Choose the smallest coherent approach.
+- Before using paid or metered services, expensive runners/resources, or recurring automation, apply [Cost-Aware Automation and Resource Governance](../standards/cost-aware-resource-governance.md). Classify cost exposure, use existing budgets and safeguards, and obtain explicit approval when required.
 - Identify verification steps before coding.
 - When work contains multiple deliverables, map dependencies, shared-file/API/schema conflicts, and independent verification boundaries before deciding what can run concurrently.
 - Define development, CI, secondary-verification, and user-acceptance environment roles where work spans environments; use [Multi-Environment Development and Validation](multi-environment-development.md) and record the exact commit and environment for each result.
