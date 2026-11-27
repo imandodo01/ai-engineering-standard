@@ -5,6 +5,17 @@
 - Never discard, reset, clean, stash-pop over, or overwrite uncommitted user work without permission.
 - Inspect `git status` and the diff before staging or committing.
 - Do not stage the entire repository blindly; stage only files belonging to the task.
+- Prefer local-first development and keep work-in-progress changes on a focused branch rather than using `main` as a scratchpad.
+
+## Branch-first development and review
+
+- Create or use a focused feature/fix/docs branch for a coherent change. Branches may contain incremental commits while implementation is in progress.
+- Use the feature branch as the review point: inspect its commit history and diff against the intended base branch before integration.
+- Do not open a PR merely to obtain an early or repeated CI run. Open or mark a PR ready when the implementation is coherent, required local checks have passed, and it is ready for review or PR-based validation.
+- A PR is not universally mandatory. Follow repository rules: merge a reviewed branch without a PR only when repository policy and branch protection permit it and the required verification/review gates are satisfied.
+- Use a PR when repository policy requires one, independent review is valuable, the change has meaningful regression risk, or PR-based CI validation is needed.
+- Do not treat reading `main` after integration as a substitute for reviewing the feature branch diff before merge. `main` is the integrated state, not the preferred staging area for unfinished work.
+- Never bypass required status checks, approvals, or branch protection to save CI cost or time.
 
 ## Branch ownership and environment handoff
 

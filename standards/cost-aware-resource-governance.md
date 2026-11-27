@@ -78,7 +78,26 @@ Ask for explicit approval before initiating the chargeable work. Approval should
 
 A previous approval does not authorize a higher cap, a new provider, a different purpose, a recurring schedule, or materially expanded usage. Seek renewed approval when the scope or expected exposure materially changes.
 
-## 5. Resource controls
+## 5. Local-first development and PR-based CI
+
+Use local development and verification as the default when the available machine can adequately perform the work. Prefer local coding, tests, linting, static analysis, builds, and debugging before consuming hosted runners.
+
+A hosted CI run is normally appropriate when a coherent change is ready for PR review and the repository's PR workflow provides required or useful independent validation. Treat ordinary, bounded PR validation under the repository's existing CI configuration as the expected CI use case; this does not authorize materially more expensive runners, expanded matrices, or unrelated paid services.
+
+Apply these rules:
+
+- Do not open a PR solely to trigger CI while implementation is incomplete or local checks have not reached the agreed readiness point. Keep work on its feature branch and continue committing coherent progress there.
+- Open or mark the PR ready when the change is ready for review and PR-based validation. A draft PR is not a general-purpose CI queue.
+- Avoid repeated PR updates or reruns that execute the same checks without a concrete reason. Re-run only when the commit changes, a prior run failed for a relevant reason, or repository policy requires it.
+- Non-PR CI activity—including push-triggered workflows, manual dispatches, scheduled jobs, ad hoc workflow runs, and repeated reruns—requires explicit approval unless a repository-specific policy or prior authorization clearly covers that execution.
+- Inspect workflow triggers before publishing a commit or push. GitHub web editing and committing do not themselves consume GitHub Actions minutes, but the resulting push/commit may trigger workflows configured for those events.
+- Do not assume all GitHub features are free: hosted runners, Codespaces, storage, artifacts, caches, and other metered services have separate usage and billing rules. Check the applicable plan, repository visibility, included quota, and overage settings when cost matters.
+- Preserve required branch protection, status checks, security scans, and verification gates. Do not bypass or weaken them to reduce cost.
+- If required CI is unavailable or not approved, keep the work on its branch and mark the required validation as pending; do not merge or claim full verification.
+
+This policy does not require a PR for every change. Follow the repository's Git policy and use a PR when repository rules, risk, independent review, or PR-based validation justify it.
+
+## 6. Resource controls
 
 Use controls appropriate to the resource. Examples include:
 
@@ -97,7 +116,7 @@ Use controls appropriate to the resource. Examples include:
 
 Do not remove necessary coverage, security checks, or verification solely to reduce cost. Optimize duplication and resource sizing before weakening quality gates.
 
-## 6. Monitoring and stop conditions
+## 7. Monitoring and stop conditions
 
 For resources with meaningful ongoing or cumulative cost:
 
@@ -110,7 +129,7 @@ For resources with meaningful ongoing or cumulative cost:
 
 If a provider offers alerts but not a hard spending stop, describe the difference. Alerts are notifications, not guarantees that spending will stop.
 
-## 7. Abnormal usage and incident handling
+## 8. Abnormal usage and incident handling
 
 When usage or cost is unexpectedly high:
 
@@ -123,7 +142,7 @@ When usage or cost is unexpectedly high:
 
 Do not delete evidence or billing records while investigating.
 
-## 8. Records and review
+## 9. Records and review
 
 For material or recurring cost exposure, record:
 
@@ -138,7 +157,7 @@ A lightweight note in the project's existing issue, feature brief, work estimate
 
 Review this policy when a project introduces a new paid provider, recurring workload, expensive runner/resource, or materially different usage pattern.
 
-## 9. Agent requirements
+## 10. Agent requirements
 
 AI agents must:
 
