@@ -34,12 +34,19 @@ For implementation batches where routine test execution would fragment progress,
 - Reuse existing abstractions and UI patterns.
 - Add validation, authorization, error handling, and transaction boundaries where required.
 - Avoid unrelated formatting churn and dependency changes.
-- Implement independent work items in separate, focused branches/PRs where the repository workflow supports it. Coordinate shared contracts and high-conflict files rather than editing them concurrently.
+- Use local resources as the default development and verification environment when they can adequately satisfy the task.
+- Create or use a focused branch before implementation. Keep incremental work-in-progress commits on that branch; do not use `main` as the scratch branch for unfinished feature or fix work.
+- GitHub's web interface may be used for suitable source edits, documentation, and commits when the change can be reviewed safely without a local runtime. Editing or committing through the web interface does not itself run GitHub Actions, but the resulting push/commit can trigger workflows configured for those events. Inspect workflow triggers before publishing when CI cost matters.
+- Implement independent work items in separate, focused branches. Open PRs only when the change is ready for review/PR validation or repository policy requires them; a PR is not a prerequisite for every branch or merge.
+- Coordinate shared contracts and high-conflict files rather than editing them concurrently.
 - For work that moves between environments, maintain one active writer per branch and transfer ownership explicitly; never assume two local branches with the same name are synchronized.
 
 ## 5. Verify
-- Run focused tests first, then broader relevant checks when practical.
-- Verify each work item against its own acceptance criteria and run CI/review as soon as it is ready; do not defer all verification until every workstream finishes.
+- Run focused checks locally first, then broader relevant local checks when practical.
+- Treat local verification as the normal gate before requesting PR review or PR-triggered CI. Keep a clear list of checks not run and why.
+- Use PR-based CI for coherent changes that are ready for review, where the repository supports it. Do not open draft or premature PRs solely to run repeated CI checks.
+- Non-PR CI runs, manual dispatches, push-triggered workflows, scheduled workflows, expanded matrices, and repeated reruns must follow the approval and cost controls in [Cost-Aware Automation and Resource Governance](../standards/cost-aware-resource-governance.md). Inspect workflow triggers; do not assume a commit or push is CI-free.
+- Do not bypass required CI checks, branch protection, security scans, or other repository-mandated gates to reduce cost.
 - Isolate mutable test resources when checks run concurrently.
 - Verify on the oldest supported runtime/platform when compatibility risk is material; record exact versions and environment for each meaningful result.
 - After integration, run cross-workstream regression checks against the combined result.
