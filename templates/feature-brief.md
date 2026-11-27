@@ -45,11 +45,19 @@ Describe what should become possible or improve. Avoid prescribing implementatio
 
 ### Functional requirements
 
-- [ ] Requirement
+- [ ] Requirement (use stable IDs when traceability is useful)
 
 ### Non-functional requirements
 
 - [ ] Security / privacy / reliability / performance / accessibility / compatibility requirements, as applicable.
+
+### Ambiguities, assumptions, and decisions
+
+| Question / uncertainty | Impact | Decision or assumption | Owner | Status / date |
+|---|---|---|---|---|
+| | | | | Open / YYYY-MM-DD |
+
+Do not silently resolve material ambiguity. Record low-risk assumptions and keep consequential unresolved questions visible.
 
 ### Acceptance criteria
 
@@ -64,8 +72,10 @@ Describe what should become possible or improve. Avoid prescribing implementatio
 - Unknowns / assumptions:
 - Required decisions or approvals:
 
-## Prioritization and planning
+## Work and planning
 
+- Work tracker / task links:
+- Major work areas: Discovery / Design / Preparation / Implementation / Integration / Verification / Documentation / Release / Operations (as applicable)
 - Priority: P0 / P1 / P2 / P3 / Not assessed
 - Priority rationale:
 - Delivery state: Not Planned / Planned / In Progress / Blocked / Implemented / Verified / Completed / Cancelled
