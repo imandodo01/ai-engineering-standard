@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Define a local-first, branch-first development workflow: use feature branches for incremental work, review branch diffs before integration, and create PRs when ready or when repository policy/review/CI needs justify them.
+- Clarify cost-aware CI execution: ordinary bounded PR validation remains an expected use case; non-PR workflow runs require scoped approval, and workflow triggers must be inspected because pushes can trigger Actions.
 - Add a Free-First Resource Strategy to cost governance, prioritizing suitable local and already-included resources before free tiers and paid options while preserving security, quality, and reliability requirements.
 - Add a provider-independent Cost-Aware Automation and Resource Governance standard covering cost tiers, scoped approval, resource limits, monitoring, stop conditions, and abnormal-usage handling; integrate it into the agent entry point and development workflow.
 - Add a project-level Feature Discovery and Registry standard with separate decision and delivery lifecycles, triage/prioritization guidance, traceability requirements, and portable Feature Registry and Feature Brief templates. Integrate discovery capture into the development workflow and context-management proposal.
