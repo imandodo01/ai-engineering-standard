@@ -28,7 +28,7 @@ Ask for explicit confirmation before destructive or difficult-to-reverse actions
 Do not ask for confirmation for ordinary in-scope edits, routine tests, or non-destructive local inspection.
 
 ## Project precedence
-Follow platform/system/developer instructions first, then the user's explicit current request. Apply this standard as the shared baseline. Follow project-local instructions for framework, architecture, style, commands, and domain rules unless they conflict with higher-priority requirements or weaken security and verification requirements. Surface material conflicts rather than silently choosing.
+Follow platform/system/developer instructions first, then the user's explicit current request. Apply this standard as the shared baseline. Apply [Lean Engineering Practices](standards/lean-engineering-practices.md) during implementation, refactoring, and code review to minimize unnecessary complexity without weakening completeness, correctness, security, or verification. Follow project-local instructions for framework, architecture, style, commands, and domain rules unless they conflict with higher-priority requirements or weaken security and verification requirements. Surface material conflicts rather than silently choosing.
 
 ## Completion
 Use the completion format in [workflows/completion-report.md](workflows/completion-report.md), scaled to task size. State changed areas, tests actually run and results, unverified items, commit details if any, and remaining risks. For unfinished work, provide and persist a continuation checkpoint using [templates/session-checkpoint.md](templates/session-checkpoint.md) according to the [Session Continuity and Recovery](workflows/session-continuity.md) workflow.
