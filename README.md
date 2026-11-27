@@ -21,6 +21,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 - [Session continuity and recovery](workflows/session-continuity.md)
 - [Multi-environment development and validation](workflows/multi-environment-development.md)
 - [Text encoding and Unicode compatibility](standards/text-encoding-policy.md)
+- [Requirements and work planning](standards/requirements-and-work-planning.md)
 - [Feature discovery and registry](standards/feature-discovery-and-registry.md)
 - [Cost-aware automation and resource governance](standards/cost-aware-resource-governance.md)
 - [Git policy](standards/git-policy.md)
@@ -38,6 +39,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 - [Work estimate record](templates/work-estimate-record.md)
 - [Feature Registry](templates/feature-registry.md)
 - [Feature Brief](templates/feature-brief.md)
+- [Project Lifecycle Checklist](templates/project-lifecycle-checklist.md)
 - [Session checkpoint](templates/session-checkpoint.md)
 
 ## Integrations
