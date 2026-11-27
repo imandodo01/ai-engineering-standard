@@ -30,6 +30,9 @@
 
 ## 4. Implement
 
+Apply [Lean Engineering Practices](../standards/lean-engineering-practices.md) throughout implementation: establish the actual need, reuse existing project or platform capabilities, choose the smallest complete solution, and avoid speculative layers or dependencies. Before changing shared behavior or contracts, inspect callers and downstream consumers and update affected tests, fixtures, documentation, and integrations. Prefer deleting demonstrably unnecessary code over adding replacement abstractions, but keep cleanup within the task scope.
+
+
 For implementation batches where routine test execution would fragment progress, apply [Implementation-First Execution](implementation-first-execution.md): complete unblocked work, maintain a consolidated pending-confirmations list, and defer the testing phase until the batch is complete. This changes sequencing, not the requirement to verify before claiming technical completion, merge, or release. Bring checks forward when needed to resolve a material design question or contain a high risk.
 
 - Keep changes within scope.
