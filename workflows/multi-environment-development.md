@@ -52,9 +52,9 @@ For multi-environment work, identify compatibility-sensitive versions early. A l
 3. Implement and run focused checks in the Development Environment.
 4. Inspect the diff, stage only task-related files, and commit coherent changes.
 5. Push the branch when remote validation or collaboration is required and authorized.
-6. Open or update a PR when the project uses PR-based review. Keep it draft while implementation is not ready for review; mark it ready only when the stated review/CI entry criteria are met.
+6. Open a PR only when the repository requires PR-based review, the change is ready for review/PR-based CI, or independent review materially benefits the change. Do not open a premature PR just to trigger CI; keep unfinished work on its branch. Follow [Cost-Aware Automation and Resource Governance](../standards/cost-aware-resource-governance.md) for CI execution controls.
 7. Record a handoff containing:
-   - repository, branch, exact commit SHA, and PR/issue link;
+   - repository, branch, exact commit SHA, and PR/issue link when applicable;
    - working-tree state and whether all changes are committed and pushed;
    - implementation summary and acceptance criteria;
    - commands run, exact environment/tool versions, and results;
@@ -114,6 +114,8 @@ These are work-item states, not mandatory Git branch names or GitHub native stat
 
 A PR's **Draft / Ready for review** state describes review readiness; it does not by itself mean user acceptance is pending or complete. Keep acceptance as an explicit field/checklist in the authoritative tracker or PR description.
 
+A PR is a review and validation mechanism, not a mandatory wrapper around every branch. When repository rules permit, a coherent, locally verified branch may be reviewed and merged without a PR. When a PR is required or provides meaningful independent review/CI, create it only after the branch is ready. Never bypass required checks or approvals. Review the branch diff against its base before integration; do not rely on inspecting `main` after merge as the only review.
+
 Keep a branch while it contains unmerged work, required validation is pending, or its evidence is needed for an active decision. After merge and the project's retention period, remove branches according to repository policy. Never force-push or delete shared work to resolve a handoff conflict.
 
 ## 7. Synchronization and ownership rules
@@ -163,7 +165,7 @@ A work item waiting for secondary verification or user acceptance does not autom
 - Before proceeding, map dependencies and shared surfaces using [Parallel Workstream Development](parallel-workstream-development.md). Independence must be demonstrated from code paths, contracts, schema, migrations, APIs, configuration, and runtime behavior—not inferred from different feature names.
 - Do not build dependent work on an unaccepted or unstable contract unless the dependency is explicitly treated as provisional and the resulting rework risk is accepted.
 - Keep the pending branch intact and available for validation. Do not merge it merely to unblock unrelated work.
-- Use separate branches and PRs for independent deliverables. Record their dependency relationship and intended integration order.
+- Use separate branches for independent deliverables; create separate PRs when repository policy, review needs, or PR-based CI justify them. Record dependency relationships and intended integration order.
 - Limit work in progress to what can be meaningfully implemented, reviewed, and verified. Do not create branches just to keep busy.
 - If validation finds a defect in a shared contract or upstream behavior, pause or reassess downstream work that depends on it. Preserve unrelated independent work.
 - Each branch still needs its own technical verification and acceptance gates. Parallel implementation does not waive tests, review, CI, or user acceptance.
