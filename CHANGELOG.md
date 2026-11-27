@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add a Requirements and Work Planning standard with proportional requirement discovery, ambiguity handling, feature definition, end-to-end work planning, traceability, and completion review; add an adaptable Project Lifecycle Checklist and extend the Feature Brief with clarification and work-planning fields.
 - Define a local-first, branch-first development workflow: use feature branches for incremental work, review branch diffs before integration, and create PRs when ready or when repository policy/review/CI needs justify them.
 - Clarify cost-aware CI execution: ordinary bounded PR validation remains an expected use case; non-PR workflow runs require scoped approval, and workflow triggers must be inspected because pushes can trigger Actions.
 - Add a Free-First Resource Strategy to cost governance, prioritizing suitable local and already-included resources before free tiers and paid options while preserving security, quality, and reliability requirements.
