@@ -52,7 +52,18 @@
 - [ ] Failures, unrun checks, and residual risks are recorded honestly.
 - [ ] User or domain-owner acceptance is obtained when required.
 
-## 6. Release and deployment
+## 6. Pre-PR readiness
+
+- [ ] Implementation batch is complete and material confirmations are resolved.
+- [ ] Applicable local checks selected by risk have passed.
+- [ ] Required manual scenarios and relevant regression checks are complete.
+- [ ] Failed checks have been fixed and affected checks rerun.
+- [ ] Final branch diff and commit history have been reviewed against the intended base.
+- [ ] Verification evidence is recorded against the exact commit SHA.
+- [ ] Checks not run, blockers, and residual risks are documented.
+- [ ] If any material verification remains blocked, the PR remains draft (if one is needed) and is not marked ready for review.
+
+## 7. Release and deployment
 
 - [ ] Release scope and readiness are reviewed.
 - [ ] Configuration, secrets, permissions, and environment requirements are prepared safely.
@@ -61,7 +72,7 @@
 - [ ] Documentation, communication, and training needs are addressed where applicable.
 - [ ] Deployment and post-deployment smoke checks are completed where applicable.
 
-## 7. Operation and improvement
+## 8. Operation and improvement
 
 - [ ] Monitoring, logging, alerting, and support ownership are considered.
 - [ ] Operational handover and maintenance needs are addressed.

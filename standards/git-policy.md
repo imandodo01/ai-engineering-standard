@@ -17,6 +17,16 @@
 - Do not treat reading `main` after integration as a substitute for reviewing the feature branch diff before merge. `main` is the integrated state, not the preferred staging area for unfinished work.
 - Never bypass required status checks, approvals, or branch protection to save CI cost or time.
 
+## Pre-PR verification gate
+
+- The normal sequence is **implement → verify locally → review the branch diff → create/ready the PR → complete PR review and required CI → merge**.
+- Do not create a review-ready PR while applicable, reasonably runnable local checks are still pending or failing.
+- The verification scope must be proportionate to acceptance criteria, changed code paths, project requirements, and risk. Follow the [Testing and Verification Policy](testing-policy.md).
+- Record the exact tested commit SHA, checks/scenarios, commands or procedures, outcomes, relevant environment/tool versions, and any omitted checks with reasons and residual risk.
+- If a material check is blocked or cannot run, keep the work out of the ready-for-review state and explain the blocker. A draft PR is permitted only when early collaboration or repository workflow needs justify it; disclose pending verification and do not present it as ready.
+- After any code change that advances the branch beyond the tested SHA, rerun the affected checks and update the evidence before requesting final review or merge.
+- Required PR checks, approvals, and branch protection remain mandatory. Local verification does not replace them, and CI does not excuse skipping checks that can reasonably run locally.
+
 ## Branch ownership and environment handoff
 
 - Use one active writer per branch. Do not independently edit or commit the same branch from multiple machines or environments at the same time.

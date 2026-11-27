@@ -5,6 +5,10 @@
 - Prefer focused tests first; expand to relevant suites when practical.
 - Add or update automated tests for meaningful business logic, bug fixes, validation, authorization, and edge cases.
 - Run project-standard formatters, linters, static analysis, build checks, and tests when available and relevant. Do not repeatedly interrupt implementation for routine checks when a planned verification phase is appropriate; bring checks forward when needed to resolve material uncertainty or contain significant risk.
+- **Complete applicable local verification before creating a review-ready PR.** A PR must not be used as a substitute for tests or checks that can reasonably be run in the development environment. The workflow and Git policies define the narrow draft-PR exception for early collaboration or repository-specific needs.
+- Select the verification set by risk: low-risk non-behavioral changes need proportionate review and relevant documentation checks; ordinary behavior changes need focused automated tests and relevant manual/regression checks; high-risk security, authorization, financial, data, migration, or critical-integration changes need broader targeted verification.
+- Fix failures and rerun affected checks before requesting final review. Record checks that are not run, the reason, and residual risk; a material blocked check prevents the PR from being marked ready.
+- Bind verification evidence to the exact commit SHA and identify the command/scenario, result, and relevant environment/tool versions. If the branch changes after verification, rerun affected checks against the new revision.
 - Do not introduce brittle tests merely to increase coverage.
 - Never state that tests passed unless they were actually executed and passed.
 - Distinguish automated tests, manual verification, static inspection, and checks not run.

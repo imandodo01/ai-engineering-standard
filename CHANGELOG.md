@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Establish a risk-scaled pre-PR verification gate: complete applicable local checks, resolve failures, review the branch diff, and record SHA-bound evidence before creating a review-ready PR; document a narrow draft-PR exception for early collaboration or blocked checks.
 - Add a Requirements and Work Planning standard with proportional requirement discovery, ambiguity handling, feature definition, end-to-end work planning, traceability, and completion review; add an adaptable Project Lifecycle Checklist and extend the Feature Brief with clarification and work-planning fields.
 - Define a local-first, branch-first development workflow: use feature branches for incremental work, review branch diffs before integration, and create PRs when ready or when repository policy/review/CI needs justify them.
 - Clarify cost-aware CI execution: ordinary bounded PR validation remains an expected use case; non-PR workflow runs require scoped approval, and workflow triggers must be inspected because pushes can trigger Actions.

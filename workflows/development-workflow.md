@@ -39,22 +39,50 @@ For implementation batches where routine test execution would fragment progress,
 - Use local resources as the default development and verification environment when they can adequately satisfy the task.
 - Create or use a focused branch before implementation. Keep incremental work-in-progress commits on that branch; do not use `main` as the scratch branch for unfinished feature or fix work.
 - GitHub's web interface may be used for suitable source edits, documentation, and commits when the change can be reviewed safely without a local runtime. Editing or committing through the web interface does not itself run GitHub Actions, but the resulting push/commit can trigger workflows configured for those events. Inspect workflow triggers before publishing when CI cost matters.
-- Implement independent work items in separate, focused branches. Open PRs only when the change is ready for review/PR validation or repository policy requires them; a PR is not a prerequisite for every branch or merge.
+- Implement independent work items in separate, focused branches.
 - Coordinate shared contracts and high-conflict files rather than editing them concurrently.
 - For work that moves between environments, maintain one active writer per branch and transfer ownership explicitly; never assume two local branches with the same name are synchronized.
 
 ## 5. Verify
+
+### Pre-PR readiness gate
+
+**The default is to complete all applicable local verification before creating a PR or marking one ready for review.** A PR is a review and integration-validation boundary, not a substitute for completing implementation or running checks that can reasonably be run beforehand.
+
+1. Finish the coherent implementation batch and resolve material confirmations that affect the proposed change.
+2. Derive the verification scope from acceptance criteria, changed code paths, project policy, and regression risk. Apply the [Testing and Verification Policy](../standards/testing-policy.md); scale checks to risk rather than running every possible test for every change.
+3. Run applicable checks in the local development environment first when feasible. This normally includes relevant formatting/lint/static checks, focused automated tests, and manual scenarios for behavior that automated tests do not cover. Expand to broader suites and regression checks when the change's risk warrants it.
+4. Fix failures and rerun the affected checks. A failed applicable check is not a pass and must not be hidden by unrelated successful checks.
+5. Review the final branch diff and commit history against the intended base. Check for accidental changes, secrets, debug code, missing tests, and consistency with project conventions.
+6. Record verification evidence against the exact commit SHA: check or scenario, command or procedure, result, environment/tool versions when relevant, and any check not run with its reason and residual risk.
+7. Create a PR, or mark it ready for review, only when the applicable pre-PR gate is satisfied.
+
+A check may be omitted when it is not relevant, is genuinely unavailable, or cannot be run safely. Record the reason and residual risk. Do not label the change fully verified when a material check remains blocked.
+
+**Draft PR exception:** A draft PR may be opened before the gate is complete when early collaboration, a required repository workflow, or a material technical discussion makes that useful. State that it is a draft, list pending checks and blockers, and do not request final approval or mark it ready until the gate is satisfied. Do not create premature or repeated PRs solely to trigger CI.
+
+### Risk-scaled verification
+
+Use the lightest verification set that adequately controls the change's risk:
+
+- **Low risk:** documentation, comments, or isolated non-behavioral changes. Review the diff and run relevant documentation, formatting, or link checks when available. Explain when no automated check applies.
+- **Medium risk:** ordinary application behavior, API, UI, query, or business-logic changes. Run focused automated tests, relevant lint/static/build checks, manual scenarios where needed, and regression checks for affected flows.
+- **High risk:** authentication/authorization, sensitive data, financial transactions, migrations, destructive data operations, security boundaries, or critical integrations. Use broader relevant test suites plus targeted integration, negative-path, security, data-integrity, migration/rollback, and compatibility checks as applicable. Obtain required approvals for high-impact operations.
+
+These are decision aids, not substitutes for project-specific mandatory gates. A small change can still be high risk because of the boundary it touches.
+
+### Verification execution and evidence
+
 - Run focused checks locally first, then broader relevant local checks when practical.
 - Treat local verification as the normal gate before requesting PR review or PR-triggered CI. Keep a clear list of checks not run and why.
-- Use PR-based CI for coherent changes that are ready for review, where the repository supports it. Do not open draft or premature PRs solely to run repeated CI checks.
+- Use PR-based CI for coherent changes that have passed applicable pre-PR checks and are ready for review or integration validation. Do not open draft or premature PRs solely to run repeated CI checks.
 - Non-PR CI runs, manual dispatches, push-triggered workflows, scheduled workflows, expanded matrices, and repeated reruns must follow the approval and cost controls in [Cost-Aware Automation and Resource Governance](../standards/cost-aware-resource-governance.md). Inspect workflow triggers; do not assume a commit or push is CI-free.
-- Do not bypass required CI checks, branch protection, security scans, or other repository-mandated gates to reduce cost.
+- Do not bypass required CI checks, branch protection, security scans, or other repository-mandated gates to reduce cost or time.
 - Isolate mutable test resources when checks run concurrently.
 - Verify on the oldest supported runtime/platform when compatibility risk is material; record exact versions and environment for each meaningful result.
 - After integration, run cross-workstream regression checks against the combined result.
-- Review the diff for correctness, accidental changes, secrets, debug code, and consistency.
 - Fix issues found and rerun affected checks.
-- If execution is blocked, explain exactly what could not be verified.
+- If execution is blocked, explain exactly what could not be verified and the residual risk.
 - When checks run in different environments, bind each result to the exact tested commit SHA and record relevant runtime/tool versions. Re-run affected checks when the branch advances.
 - Keep user acceptance distinct from implementation and technical verification; leave acceptance pending when the required owner has not yet validated the result.
 
