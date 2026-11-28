@@ -42,17 +42,18 @@ Use the smallest useful amount of concurrency supported by available contributor
 - Use separate focused branches and PRs for independently deliverable changes when that matches repository policy.
 - Avoid concurrent edits to the same files or shared contracts unless ownership and merge order are explicit.
 - Prefer small PRs that can be reviewed, tested, and integrated independently.
-- Keep task boundaries stable; if implementation reveals hidden coupling, pause and remap dependencies rather than forcing parallelism.
-- Do not create branches or PRs merely to make work appear parallel.
+- Avoid creating branches or PRs merely to make work appear parallel.
 
 Parallelism may be across implementation, tests, documentation, design review, or operational preparation when their inputs and outputs are sufficiently independent.
 
 ## 4. Verify continuously
 
-Verification should begin as soon as a work item has a testable result.
+Verification should begin as soon as a work item has a testable result, subject to the [Implementation-First Execution](implementation-first-execution.md) workflow for coherent implementation batches.
 
 - Define checks from acceptance criteria and regression risk before implementation.
-- Run focused tests and static/build checks for each work item.
+- Run focused checks when they are needed to resolve a design question, contain material risk, or validate a genuinely independent workstream.
+- When implementation-first batching is appropriate, consolidate routine checks and run them after the unblocked implementation batch; do not repeatedly interrupt the batch with low-value test runs.
+- Complete all applicable verification before marking a workstream ready for review or integration.
 - Start PR review and CI as soon as a PR is ready; do not wait for every workstream to finish.
 - Isolate mutable test databases, fixtures, ports, temporary paths, queues, and external test resources when checks run concurrently.
 - Do not let concurrent test jobs share state unless the test system guarantees isolation.
@@ -89,7 +90,7 @@ Prefer sequential execution when:
 
 - The work is exploratory and the correct decomposition is not yet known.
 - Multiple tasks depend on the same evolving schema, API, or architectural decision.
-- The same high-contention files must change in several tasks.
+- The same high-contention files must change in several workstreams.
 - Test or deployment environments cannot be safely isolated.
 - Review/integration capacity is already saturated.
 - Parallel work would create duplicated effort or likely rework.
