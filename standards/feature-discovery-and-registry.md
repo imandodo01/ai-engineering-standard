@@ -56,22 +56,18 @@ Do not overload one status field with both product decisions and engineering pro
 
 An accepted item is not automatically planned or authorized for immediate implementation.
 
-### Delivery state
+### Planning state and execution evidence
 
-Use delivery states only after an item is accepted into a plan:
+Use the registry's planning/delivery field only to show whether accepted work is scheduled or intentionally removed from the current plan:
 
 | State | Meaning |
 |---|---|
 | Not Planned | Accepted, but not scheduled |
 | Planned | Scope and acceptance criteria are sufficiently clear and work is scheduled |
-| In Progress | Implementation has started |
-| Blocked | Progress depends on an unresolved issue or dependency |
-| Implemented | The change exists; verification may still be pending |
-| Verified | Required technical checks passed; acceptance may still be pending |
-| Completed | Delivery and required acceptance criteria are satisfied |
+| Deferred | Work is intentionally postponed; record a revisit trigger where useful |
 | Cancelled | Previously planned work is no longer proceeding; record why |
 
-Projects may map these to an existing issue tracker, but must preserve the distinction between decision and delivery. Do not treat a closed issue or merged PR as proof of user acceptance unless that is the project's explicit acceptance rule.
+Do not add In Progress, Blocked, Implemented, Verified, or Completed as competing registry lifecycle states. Track actual execution using the canonical Implementation, Verification, and Acceptance dimensions in [Estimation and Progress Tracking](estimation-and-progress-tracking.md). A project may map those dimensions to its issue tracker, but must preserve their meaning. Do not treat a closed issue or merged PR as proof of user acceptance unless that is the project's explicit acceptance rule.
 
 ## 4. Minimum registry fields
 

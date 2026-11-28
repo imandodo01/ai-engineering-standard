@@ -88,3 +88,5 @@ For substantial collaborative work, preserve a concise handoff:
 - next actionable step.
 
 Use repeated interaction friction as evidence for improving this guidance, but do not optimize for speed at the expense of safety, clarity, or user agency.
+
+For engineering work, use the Definition of Done and stop condition in [Development Workflow](development-workflow.md): once agreed scope and required gates are satisfied, report and stop. Do not reopen accepted decisions or initiate another review/refactor cycle without new material evidence, a changed requirement, or an explicit user request.

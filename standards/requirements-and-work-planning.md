@@ -26,7 +26,7 @@ Start by understanding, as applicable:
 - Desired outcome and how success can be recognized.
 - Scope boundaries, constraints, and known dependencies.
 
-Capture each distinct requirement or actionable finding in the project's authoritative registry. A small project may keep requirements and features together in one concise registry. Use stable identifiers where traceability is useful, for example REQ-001 for a requirement and FEAT-001 for a feature. Reuse an existing project or tracker ID scheme when available.
+Capture each distinct requirement or actionable finding in the project's authoritative registry. This document owns the **analysis and definition of the requested outcome**: clarify the need, define requirements/features, scope, acceptance criteria, and a proportionate delivery plan. The [Feature Discovery and Registry](feature-discovery-and-registry.md) standard owns **durable discovery capture, triage/decision state, backlog traceability, and links to delivery**. The registry is the index and source of truth for item lifecycle; it is not a duplicate copy of the full requirements brief or implementation plan. A small project may keep concise requirements and features together in one registry. Use stable identifiers where traceability is useful, for example REQ-001 for a requirement and FEAT-001 for a feature. Reuse an existing project or tracker ID scheme when available.
 
 Distinguish:
 - **Business or user need:** the problem or outcome to achieve.
@@ -37,6 +37,8 @@ Distinguish:
 Do not force a separate record for every statement. Group related requirements when doing so keeps them understandable and traceable.
 
 ## 2. Identify features and clarify ambiguity
+
+Requirements and feature definition belong to this planning activity. When a finding is first discovered, capture its source and decision lifecycle in the authoritative Feature Registry; when it is accepted for a delivery plan, use this standard to refine the required behavior, scope, acceptance criteria, dependencies, and work. Do not duplicate the complete requirement or mutable delivery status in both places. A small item may remain concise in the registry when a separate brief adds no value.
 
 Translate understood requirements into a feature list. For each feature, capture only what is useful at the current stage:
 
@@ -96,13 +98,13 @@ Use the project's existing tracker as the operational source of truth. The [Proj
 
 ## 5. Track delivery without losing distinctions
 
-Keep these concepts separate:
+Keep distinct concepts separate:
 
-- **Requirement/feature decision:** Proposed, Under Review, Accepted, Rejected, or Deferred.
-- **Work planning and execution:** Not Planned, Planned, In Progress, Blocked, Implemented, Verified, Completed, or Cancelled, using the project's established mapping.
-- **Acceptance:** Pending, Accepted, Rejected, Changes Requested, or Deferred when explicit user or domain-owner acceptance is required.
+- **Requirement/feature decision:** Proposed, Under Review, Accepted, Rejected, or Deferred, maintained in the authoritative registry.
+- **Planning state:** Not Planned, Planned, Deferred, or Cancelled, using the project's established tracker. This says whether work is scheduled, not whether implementation is complete.
+- **Execution state:** Track Implementation, Verification, and Acceptance as separate dimensions using the canonical model in [Estimation and Progress Tracking](estimation-and-progress-tracking.md). Do not create competing status vocabularies for these dimensions.
 
-A task may be implemented but not verified. A technically verified feature may still be awaiting user acceptance. Do not use one status to imply all three.
+A task may be implemented but not verified. A technically verified feature may still be awaiting required user acceptance. Keep Git/PR lifecycle and session state separate from work status.
 
 For completed work, retain the relevant evidence such as a test result, review, commit, deployment record, or acceptance decision. Bind verification evidence to the exact revision when code changes are involved.
 

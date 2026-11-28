@@ -8,14 +8,40 @@
 - For new projects or material scope changes, apply [Requirements and Work Planning](../standards/requirements-and-work-planning.md): understand the desired outcome, capture requirements, identify features, record material ambiguities, and build a proportionate end-to-end work list.
 - When discovery reveals a new actionable requirement, defect, or improvement, follow [Feature Discovery and Registry](../standards/feature-discovery-and-registry.md). Capture it in the project's authoritative registry before it is lost; recording it does not approve or schedule implementation.
 
-## 2. Inspect
+## 2. Classify the task and select applicable guidance
+
+Classify by **risk, impact, uncertainty, and coordination complexity**, not by lines of code, file count, or estimated effort alone. Use the highest class that applies; a small change can be critical because of the boundary it touches. Reassess when discovery changes the risk or scope.
+
+| Class | Characteristics | Default approach |
+|---|---|---|
+| **T1 — Routine** | Clear, isolated, low-impact change with little uncertainty | Inspect the relevant area, implement directly, perform focused verification, and review the diff. |
+| **T2 — Standard** | Normal behavior change across a bounded feature or a few related components | Define observable acceptance criteria, inspect affected paths, implement a coherent unit, run focused tests, and review the diff. |
+| **T3 — Complex** | Multiple components or dependencies, significant uncertainty, integration work, or several deliverables | Plan the outcome, map dependencies, define coherent implementation batches, consolidate routine verification per batch, and perform relevant regression/integration checks. |
+| **T4 — Critical** | Security, authorization, sensitive/financial data, data integrity, destructive operations, production, or other high-impact boundaries | Apply explicit risk controls, required approvals, and targeted security/data/rollback/negative-path verification. Split work as small as risk requires. |
+
+Use the lightest applicable process; classification selects guidance, it does not waive project requirements or mandatory Git, testing, security, or approval gates.
+
+| Guidance / activity | T1 | T2 | T3 | T4 |
+|---|---|---|---|---|
+| Project instructions, relevant code/Git inspection | Required | Required | Required | Required |
+| Acceptance criteria | Brief or implicit for trivial edits | Clear | Detailed across deliverables | Detailed and risk-specific |
+| Work breakdown / dependency mapping | Only if useful | When multiple parts depend on each other | Expected | Expected, risk-driven |
+| Coherent implementation batching | Usually one small unit | One bounded behavior/feature where useful | Explicit batch boundaries | Risk-driven; split where necessary |
+| Focused verification | Required where applicable | Required | Required per batch | Required per risk boundary |
+| Broader regression / integration checks | If affected | If affected | Normally applicable | Required where relevant to the critical boundary |
+| Security / data-integrity review | If affected | If affected | If affected | Required for the affected critical boundary |
+| Final diff review and completion report | Required | Required | Required | Required |
+
+Do not load every workflow by default. Apply a specialized workflow only when its trigger is present: parallel execution, multiple environments, dependency preparation, text/encoding boundaries, multi-target CLI behavior, cost exposure, or session handoff. The task classification is a selector, not a new checklist to mechanically complete.
+
+## 3. Inspect
 - Read applicable agent/project instructions.
 - Inspect relevant code paths, data models, migrations, tests, dependencies, and Git status.
 - Identify existing conventions and likely regression surfaces.
 - Inspect the project's compatibility matrix when one exists and the change touches supported runtimes, platforms, or dependency constraints. If no matrix exists and compatibility materially affects the change, record the support and tested environments in the project's documentation.
 - Preserve pre-existing user changes.
 
-## 3. Plan
+## 4. Plan
 - For effort and progress records, follow [Estimation and Progress Tracking](../standards/estimation-and-progress-tracking.md); use focused person-hours for effort and keep elapsed time and capacity distinct.
 - For multi-step or risky work, outline a short implementation plan and key risks.
 - Choose the smallest coherent approach.
@@ -28,10 +54,10 @@
 - For accepted registry items entering a plan, confirm scope, dependencies, priority rationale, estimate, and observable acceptance criteria. Do not treat every accepted idea as a delivery commitment.
 - Use the [Project Lifecycle Checklist](../templates/project-lifecycle-checklist.md) as a prompt when a complete project or milestone plan is useful; adapt it and omit irrelevant items rather than copying it mechanically.
 
-## 4. Implement
+## 5. Implement
 - Apply [Lean Engineering Practices](../standards/lean-engineering-practices.md) throughout implementation: establish the actual need, reuse existing project or platform capabilities, choose the smallest complete solution, and avoid speculative layers or dependencies. Before changing shared behavior or contracts, inspect callers and downstream consumers and update affected tests, fixtures, documentation, and integrations. Prefer deleting demonstrably unnecessary code over adding replacement abstractions, but keep cleanup within the task scope.
 
-For implementation batches where routine test execution would fragment progress, apply [Implementation-First Execution](implementation-first-execution.md): complete unblocked work, maintain a consolidated pending-confirmations list, and defer the testing phase until the implementation batch is complete without weakening safety or verification gates. This changes sequencing, not the requirement to verify before claiming technical completion, merge, or release. Bring checks forward when needed to resolve a material design question or contain a high risk.
+For a coherent implementation batch where routine test execution would fragment progress, apply [Implementation-First Execution](implementation-first-execution.md): implement the related, unblocked work in the batch first, then run consolidated verification for that batch. Size the batch by dependencies, acceptance criteria, and risk—not by arbitrary file count. This changes sequencing, not the requirement to verify before claiming technical completion, merge, or release. Bring checks forward when needed to resolve a material design question or contain a high risk.
 
 - Keep changes within scope.
 - Reuse existing abstractions and UI patterns.
@@ -45,7 +71,7 @@ For implementation batches where routine test execution would fragment progress,
 - Coordinate shared contracts and high-conflict files rather than editing them concurrently.
 - For work that moves between environments, maintain one active writer per branch and transfer ownership explicitly; never assume two local branches with the same name are synchronized.
 
-## 5. Verify
+## 6. Verify
 
 ### Pre-PR readiness gate
 
@@ -88,18 +114,32 @@ These are decision aids, not substitutes for project-specific mandatory gates. A
 - When checks run in different environments, bind each result to the exact tested commit SHA and record relevant runtime/tool versions. Re-run affected checks when the branch advances.
 - Keep user acceptance distinct from implementation and technical verification; leave acceptance pending when the required owner has not yet validated the result.
 
-## 6. Commit (when requested or authorized)
+## 7. Commit (when requested or authorized)
 - Commit a coherent logical unit, not each individual file.
 - Check staged changes and ensure unrelated changes are excluded.
 - Use the project's commit convention; otherwise use Conventional Commits.
 - Never rewrite shared history or force-push without explicit approval.
 
-## 7. Report
+## 8. Report
+
+### Definition of Done and stop condition
+
+A work item is done when all applicable conditions are true:
+1. The agreed scope and observable acceptance criteria are satisfied.
+2. Implementation is complete.
+3. Required verification has passed, or is explicitly not required; material blocked checks prevent a fully verified completion claim.
+4. The final diff has been reviewed.
+5. Relevant documentation and delivery records are updated.
+6. Required user/domain acceptance is recorded; if acceptance is not required, do not invent an acceptance gate.
+7. No unresolved material blocker or risk remains undisclosed.
+
+After these conditions are met, report the outcome and stop. Do not automatically start optional refactoring, speculative optimization, unrelated cleanup, additional audits, or another review cycle. Reopen only when new evidence identifies a material defect, security/safety issue, unmet requirement, or changed scope, or when the user asks for further work. Record non-blocking follow-up ideas separately rather than extending the completed task.
+
 - Summarize behavior delivered, important files/areas, checks and outcomes, known gaps, and commit hash/message when applicable.
 - Distinguish implementation state, verification state, and acceptance state; do not describe work as complete solely because implementation exists.
 - For unfinished multi-session work, provide a concise handoff with current branch/commit, completed work and evidence, accepted decisions, assumptions or blockers, unverified items, and the next actionable step.
 
-## 8. Maintain session continuity
+## 9. Maintain session continuity
 - Apply [Session Continuity and Recovery](session-continuity.md) for work likely to span sessions, agent runs, context windows, or providers.
 - Create or refresh a checkpoint at meaningful milestones, after important decisions or verification results, and before a planned interruption or handoff.
 - When context pressure is observable, prioritize checkpointing before starting more substantial work. Never invent token telemetry or claim that the interface will automatically save before a hard cutoff.
