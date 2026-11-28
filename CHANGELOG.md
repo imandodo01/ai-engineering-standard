@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Add provider-independent Lean Engineering Practices, adapting selected Ponytail ideas: smallest complete implementation, reuse before creating, caller/downstream impact inspection, evidence-based deletion-first review, deliberate shortcut tracking, and explicit non-negotiable safety boundaries.
+- Integrate lean practices into the agent entry point, engineering principles, code quality policy, and development workflow; index the policy in the README.
+- Align parallel-workstream verification with implementation-first batching so routine checks can be consolidated without delaying risk-driven checks or weakening pre-review verification.
+- Correct the README policy index to include CLI and workspace tooling safety, which was already linked from the agent entry point.
 - Establish a risk-scaled pre-PR verification gate: complete applicable local checks, resolve failures, review the branch diff, and record SHA-bound evidence before creating a review-ready PR; document a narrow draft-PR exception for early collaboration or blocked checks.
 - Add a Requirements and Work Planning standard with proportional requirement discovery, ambiguity handling, feature definition, end-to-end work planning, traceability, and completion review; add an adaptable Project Lifecycle Checklist and extend the Feature Brief with clarification and work-planning fields.
 - Define a local-first, branch-first development workflow: use feature branches for incremental work, review branch diffs before integration, and create PRs when ready or when repository policy/review/CI needs justify them.
