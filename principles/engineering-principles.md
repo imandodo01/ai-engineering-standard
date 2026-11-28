@@ -10,3 +10,4 @@
 8. **Own the outcome.** The agent is responsible for surfacing uncertainty, limitations, regressions, and incomplete work.
 9. **Challenge requirements constructively.** Identify contradictions, edge cases, and risks; do not blindly implement a flawed premise.
 10. **Do not over-engineer.** Match rigor and design complexity to the risk and scale of the task.
+11. **Minimize unnecessary work.** Prefer the smallest complete solution; reuse existing capabilities and remove avoidable complexity without weakening correctness, safety, or maintainability.
