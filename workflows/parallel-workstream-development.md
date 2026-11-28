@@ -42,7 +42,8 @@ Use the smallest useful amount of concurrency supported by available contributor
 - Use separate focused branches and PRs for independently deliverable changes when that matches repository policy.
 - Avoid concurrent edits to the same files or shared contracts unless ownership and merge order are explicit.
 - Prefer small PRs that can be reviewed, tested, and integrated independently.
-- Avoid creating branches or PRs merely to make work appear parallel.
+- Keep task boundaries stable; if implementation reveals hidden coupling, pause and remap dependencies rather than forcing parallelism.
+- Do not create branches or PRs merely to make work appear parallel.
 
 Parallelism may be across implementation, tests, documentation, design review, or operational preparation when their inputs and outputs are sufficiently independent.
 
