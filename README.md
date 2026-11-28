@@ -7,10 +7,11 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 
 ## Start here
 1. Read [AGENTS.md](AGENTS.md) before software engineering work.
-2. Load only the policy documents relevant to the requested task.
-3. Inspect the target repository and follow its established conventions.
-4. Treat project-local instructions as specialization, not permission to weaken safety or verification requirements.
-5. For resumed or transferred work, follow [Session Continuity and Recovery](workflows/session-continuity.md) and validate the latest checkpoint against the actual project state.
+2. Classify the task by complexity, uncertainty, impact, and risk using the selector in [Development Workflow](workflows/development-workflow.md).
+3. Load only the policies and workflows applicable to that task, while retaining mandatory project and safety requirements.
+4. Inspect the target repository and follow its established conventions.
+5. Treat project-local instructions as specialization, not permission to weaken safety or verification requirements.
+6. For resumed or transferred work, follow [Session Continuity and Recovery](workflows/session-continuity.md) and validate the latest checkpoint against the actual project state.
 
 ## Policies
 - [Engineering principles](principles/engineering-principles.md)
@@ -55,4 +56,4 @@ Unless otherwise noted, the original documentation and written materials in this
 Third-party materials, trademarks, and content explicitly identified as excluded are not covered by this license and remain subject to their respective terms.
 
 ## Governance
-The standard is technology-agnostic and intentionally pragmatic. Propose changes when repeated real-world use exposes gaps. Record meaningful changes in [CHANGELOG.md](CHANGELOG.md).
+The standard is technology-agnostic and intentionally pragmatic. Propose changes when repeated real-world use exposes gaps. Before adding or revising a rule, reconcile duplication, conflicts, document ownership, and downstream references; prefer updating an existing authoritative policy over creating another standalone document. Scale cross-policy review to the change's impact, then record meaningful changes in [CHANGELOG.md](CHANGELOG.md).

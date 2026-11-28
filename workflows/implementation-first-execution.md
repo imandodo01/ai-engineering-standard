@@ -8,7 +8,7 @@ This workflow separates implementation progress from confirmation gathering and 
 
 ## Core rule
 
-**Implement everything that is sufficiently clear; record what needs a decision; defer the testing phase until the implementation batch is complete.**
+**Implement a coherent, bounded batch of related work first; then run consolidated verification for that batch.** Record material decisions that remain open, and keep work dependent on those decisions isolated.
 
 A pending confirmation or a test that can safely run later must not stop unrelated, well-understood implementation work.
 
@@ -24,6 +24,17 @@ At the start of the implementation pass:
 - Keep work dependent on an unresolved decision isolated; do not silently invent the decision.
 
 A blocker applies only to the affected implementation boundary. Continue independent work wherever practical.
+
+### Choose the batch boundary
+
+A batch should be:
+- **Coherent:** produces one recognizable behavior, deliverable, or dependency group.
+- **Bounded:** has a defined scope and does not expand merely because more work is discoverable.
+- **Verifiable:** can be checked against known acceptance criteria and relevant regression surfaces.
+
+Choose its size from dependency relationships, acceptance criteria, implementation risk, and the ability to verify the resulting behavior. Do not split related work into tiny batches that create repeated handoffs or test runs; do not combine unrelated work merely to postpone verification. A routine change may be one batch; a complex feature may need several batches; a critical change may need smaller risk-isolated batches.
+
+Tests may be written or updated during implementation. The consolidated execution of routine tests follows the completed batch. Bring checks forward when a result is needed to resolve material uncertainty, detect a broad design issue early, or contain security, data-integrity, or other significant risk. Engineering care and static inspection are never deferred.
 
 ## 2. Collect confirmations in one decision list
 
@@ -94,10 +105,8 @@ Follow [Testing and Verification Policy](../standards/testing-policy.md). A comp
 
 Use distinct states so deferred work remains visible:
 
-- **Implementation in progress:** unblocked work is being implemented.
-- **Implementation complete — confirmations pending:** current unblocked scope is implemented; listed decisions remain open.
-- **Implementation complete — verification pending:** implementation is complete and no material decisions remain; checks have not yet been run.
-- **Technically verified:** applicable checks passed on the recorded commit and environment.
-- **Accepted:** required user or domain-owner acceptance is explicitly recorded.
+- Track implementation, verification, and acceptance using the canonical dimensions in [Estimation and Progress Tracking](../standards/estimation-and-progress-tracking.md). Pending confirmations are decision records, not an additional delivery-status system. Keep Git/PR state and session/checkpoint state separate.
+
+The implementation batch being complete does not mean the work is technically verified, accepted, merge-ready, or release-ready.
 
 The goal is to reduce idle waiting and fragmented interaction without weakening security, correctness, or release confidence.

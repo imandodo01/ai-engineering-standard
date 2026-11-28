@@ -6,16 +6,16 @@ Scale the report to the size of the task. For a trivial question or tiny edit, a
 What behavior or outcome was delivered.
 
 ## Delivery state
-- Implementation: Not started / In progress / Implemented
-- Verification: Not run / Partial / Passed / Failed / Blocked
-- Acceptance: Pending / Accepted / Rejected / Deferred
+- Implementation: Not Started / In Progress / Implemented
+- Verification: Not Required / Pending / Passed / Failed / Blocked
+- Acceptance: Not Required / Pending / Accepted / Rejected / Changes Requested / Deferred
 
 Definitions:
 - **Implemented:** the change exists in the target project.
 - **Verified:** the required checks were actually run and passed. State partial or blocked verification honestly.
 - **Accepted:** the applicable acceptance criteria are satisfied, evidence is recorded, and any required review or owner sign-off is complete.
 
-Do not infer verification from implementation, or acceptance from a successful test run alone.
+Completion rule: Implementation must be Implemented; Verification must be Passed or Not Required; and Acceptance must be Accepted or Not Required. Do not infer verification from implementation, or acceptance from a successful test run, merged PR, or Git state alone. Keep planning, Git/PR, and session states separate.
 
 ## Changes
 Important files, modules, or architectural decisions. Avoid dumping every filename when not useful.

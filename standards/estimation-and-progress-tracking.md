@@ -39,7 +39,7 @@ A useful estimate record includes:
 | Dependencies | Required decisions, people, systems, or deliverables |
 | Risks / assumptions | Factors that could move the estimate |
 | Acceptance criteria | Observable conditions for completion |
-| Status | Proposed, Planned, In Progress, Blocked, Completed, Deferred, or Cancelled |
+| Planning state | Proposed, Planned, Deferred, or Cancelled; track blockers separately |
 | Actual effort | Recorded effort spent, when known |
 | Remaining effort | Current estimate of effort still needed |
 | Elapsed time | Calendar time since start or relevant event |
@@ -63,23 +63,21 @@ Actual effort and remaining effort answer different questions. Do not infer rema
 
 ## 4. Track progress through evidence
 
-Use a small, consistent status vocabulary:
+Use the project's planning lifecycle to show whether work is proposed, planned, deferred, or cancelled. Track blockers as a separate blocker/next-action field rather than adding another execution status. Planning labels are not substitutes for the three execution dimensions below.
 
-- **Proposed:** identified but not committed to a plan.
-- **Planned:** accepted into a plan with scope and acceptance criteria.
-- **In Progress:** active work has started.
-- **Blocked:** cannot make meaningful progress until a dependency or issue is resolved.
-- **Completed:** acceptance criteria are met and required verification evidence exists.
-- **Deferred:** intentionally moved out of the current plan.
-- **Cancelled:** no longer required; record the reason.
+For each deliverable, use this canonical three-dimension work-status model rather than collapsing implementation, verification, and acceptance into one label:
 
-For each deliverable, distinguish three states rather than collapsing them into one progress label:
+| Dimension | States | Meaning |
+|---|---|---|
+| **Implementation** | Not Started / In Progress / Implemented | Whether the agreed change or artifact exists. Implemented says nothing by itself about verification or acceptance. |
+| **Verification** | Not Required / Pending / Passed / Failed / Blocked | Whether the required technical checks are applicable and what their actual result is. |
+| **Acceptance** | Not Required / Pending / Accepted / Rejected / Changes Requested / Deferred | Whether required user/domain acceptance has been completed. Use the project's explicit acceptance process; do not infer it from tests or merge state. |
 
-- **Implemented:** the change or artifact exists. This says nothing by itself about test results or acceptance.
-- **Verified:** the required checks were actually executed and passed. Record partial, failed, or blocked verification explicitly.
-- **Accepted:** the acceptance criteria are satisfied, evidence is recorded, and any required review or owner sign-off is complete.
+A deliverable is technically verified when Verification is Passed or Not Required. It is complete when Implementation is Implemented, Verification is Passed or Not Required, and Acceptance is Accepted or Not Required, with no undisclosed material blocker. A failed or blocked verification must remain visible; do not label the deliverable complete. Acceptance may be Not Required only when the project or task genuinely has no separate user/domain acceptance gate. Changes Requested or Deferred means required acceptance is not complete.
 
-A deliverable may be implemented but not verified, or verified but awaiting acceptance. Do not mark it **Completed** until the project's completion criteria are satisfied. If a project uses a different lifecycle, map its statuses explicitly rather than silently conflating them.
+Keep planning/decision states (such as Proposed, Planned, Deferred, or Cancelled) separate from these execution dimensions. Keep Git/PR states (such as Draft, Ready for Review, Pushed, or Merged) and session/checkpoint states separate as well. They describe different things and must not be used as substitutes for work status.
+
+Projects may use different tracker labels, but should map them explicitly to these meanings. Do not create a new global status field when a project tracker already represents the same dimensions clearly.
 
 Progress updates should state what changed, what evidence supports it, what remains, and whether the forecast moved. Avoid unsupported percentage-complete values. For multi-part deliverables, track completed and remaining acceptance criteria or work items instead.
 

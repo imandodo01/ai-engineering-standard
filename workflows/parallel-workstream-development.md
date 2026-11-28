@@ -81,7 +81,7 @@ After integration, run the relevant combined regression suite and any cross-work
 
 ## 7. Completion and traceability
 
-For each deliverable, record its acceptance result, PR/commit reference, tests and CI outcomes, manual checks, and known limitations. At the overall outcome level, record integration verification and deferred findings.
+For each deliverable, record its Implementation, Verification, and Acceptance dimensions using [Estimation and Progress Tracking](../standards/estimation-and-progress-tracking.md), plus its PR/commit reference, tests and CI outcomes, manual checks, and known limitations. Do not invent separate work-status labels for parallel workstreams. At the overall outcome level, record integration verification and deferred findings.
 
 Never claim a work item is complete based only on code being written, a successful build, or a green isolated PR when combined behavior has not been checked.
 

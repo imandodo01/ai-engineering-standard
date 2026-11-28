@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Consolidate task execution guidance with a risk- and complexity-based T1–T4 task selector, a canonical three-dimension work-status model, coherent implementation-batch sizing, clarified Requirements/Feature Registry ownership, explicit Definition of Done/stop conditions, and cross-policy integration governance.
 - Adopt a GitHub-native-first decision for suitable low-risk documentation and text-only changes while retaining local execution for code, runtime-dependent work, and meaningful verification.
 - Clarify the explicitly authorized direct-to-default-branch exception for bounded documentation changes, with repository-rule, automation-trigger, and final-diff review safeguards.
 - Strengthen CI-cost guidance: inspect target-branch GitHub Actions triggers before publishing and do not infer that missing repository workflows means external automation is absent.

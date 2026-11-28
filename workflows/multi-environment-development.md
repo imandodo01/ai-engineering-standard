@@ -100,17 +100,13 @@ A user-validation hold is a legitimate workflow state. Keep the branch and PR av
 
 ## 6. Branch and PR lifecycle
 
-Use the repository's existing naming and review conventions. A typical lifecycle is:
+Use the repository's existing naming and review conventions. An example sequence of milestones is:
 
-`planned -> in-progress -> implementation-complete -> technically-verified -> awaiting-user-validation -> accepted -> ready-to-merge -> merged`
+`planned -> implementation in progress -> implementation complete -> verification passed -> awaiting user acceptance -> accepted -> ready to merge -> merged`
 
-Alternative outcomes include:
+Alternative outcomes include a failed verification returning to implementation, a rejected acceptance returning for changes, or acceptance being deferred.
 
-- `technically-verified -> changes-requested -> in-progress`
-- `awaiting-user-validation -> deferred`
-- `technically-verified -> rejected`
-
-These are work-item states, not mandatory Git branch names or GitHub native states. Use GitHub PR labels, project fields, issue states, or a concise PR checklist only when the repository has an established convention. Do not assume labels exist or create noisy duplicate tracking.
+These phrases describe possible milestones, not a second mandatory status vocabulary. Track work using the canonical Implementation, Verification, and Acceptance dimensions in [Estimation and Progress Tracking](../standards/estimation-and-progress-tracking.md). Keep Git/PR lifecycle (Draft, Ready for Review, Merged) and session/environment handoff state separate. Use project-specific labels or fields only when an established tracker needs them; map them to the canonical meanings and avoid duplicate mutable tracking.
 
 A PR's **Draft / Ready for review** state describes review readiness; it does not by itself mean user acceptance is pending or complete. Keep acceptance as an explicit field/checklist in the authoritative tracker or PR description.
 
@@ -139,11 +135,10 @@ Recommended fields:
 | Work item | Issue, ticket, or feature identifier |
 | Branch / PR | Exact branch and review link |
 | Tested commit | Full or short SHA, unambiguous within the repository |
-| Implementation | Not started / In progress / Implemented |
-| Development verification | Checks, environment, versions, result |
-| CI verification | Run/link, commit SHA, result |
-| Secondary verification | Checks, environment, versions, result |
-| User acceptance | Pending / Accepted / Rejected / Changes Requested / Deferred |
+| Implementation | Not Started / In Progress / Implemented |
+| Verification | Not Required / Pending / Passed / Failed / Blocked, with evidence by environment |
+| Acceptance | Not Required / Pending / Accepted / Rejected / Changes Requested / Deferred |
+| Git/PR state | Branch and PR lifecycle, tracked separately |
 | Blocker / risk | Concrete issue or None known |
 | Next action / owner | One actionable next step and responsible party |
 | Updated at | Timestamp and time zone |
