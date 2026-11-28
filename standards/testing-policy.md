@@ -18,6 +18,17 @@
 - For cross-runtime or cross-platform projects, verify the oldest supported environment when practical and record exact tested versions. Keep support claims distinct from environments actually tested; use the [Project Compatibility Matrix template](../templates/project-compatibility-matrix.md) when a durable matrix is useful.
 - For data changes, inspect migration safety, rollback implications, constraints, and data integrity. Do not run destructive operations against shared or production data without approval.
 
+## CLI and multi-target automation
+
+For command-line tools that inspect or operate on multiple repositories, workspaces, or filesystem targets, apply [CLI and Workspace Tooling Safety](cli-and-workspace-tooling-safety.md) and test the relevant boundaries:
+- prove that inspection/default modes perform no prohibited network or mutation operations;
+- use disposable repositories and temporary directories, never the user's live workspace, for destructive or mutation integration tests;
+- cover ambiguous and unsafe target states and verify that one target's failure does not stop independent targets;
+- inject report/log/history write failures and verify that target outcomes remain visible and command exit codes do not report false success;
+- test path traversal, reparse-point/symlink handling, atomic replacement, filename allowlists, retention ordering/boundaries, and preservation of unrelated sentinel files when those features exist;
+- test secret redaction and ensure arbitrary event objects, arguments, environment variables, and file contents are not serialized into logs;
+- verify behavior on the oldest supported shell/runtime and record exact versions.
+
 ## Authentication and MFA verification
 
 For authentication or MFA changes, derive tests from the factor lifecycle and threat model. Where applicable, cover:
