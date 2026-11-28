@@ -15,6 +15,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 ## Policies
 - [Engineering principles](principles/engineering-principles.md)
 - [Development workflow](workflows/development-workflow.md)
+- [Lean Engineering Practices](standards/lean-engineering-practices.md)
 - [Implementation-first execution](workflows/implementation-first-execution.md)
 - [Dependency preparation and parallel implementation](workflows/dependency-preparation-and-parallel-implementation.md)
 - [Context-aware interaction and clarification](workflows/context-aware-interaction.md)
@@ -27,6 +28,7 @@ Provide one maintained source of engineering rules for AI assistants and coding 
 - [Git policy](standards/git-policy.md)
 - [Testing and verification](standards/testing-policy.md)
 - [Security and safety](standards/security-policy.md)
+- [CLI and workspace tooling safety](standards/cli-and-workspace-tooling-safety.md)
 - [Code quality](standards/code-quality.md)
 - [Estimation and progress tracking](standards/estimation-and-progress-tracking.md)
 - [Completion report](workflows/completion-report.md)
