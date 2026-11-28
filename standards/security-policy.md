@@ -10,6 +10,18 @@
 - Ask before destructive or irreversible actions, production operations, secret rotation, or access-control changes.
 - Do not assume a local environment is safe for production credentials or real customer data.
 
+## Filesystem boundaries and generated artifacts
+
+For tools that write, replace, or prune files beneath a managed workspace:
+- Resolve configured relative paths against an explicit trusted root; reject rooted paths and traversal when outputs must remain contained.
+- Canonicalize paths and inspect existing symbolic links, junctions, and platform-specific reparse points before writing or deleting.
+- Restrict retention/deletion to strict application-owned filename patterns and direct-child regular files. Preserve unknown files, directories, and reparse points.
+- Revalidate the canonical parent and candidate immediately before destructive file operations to reduce time-of-check/time-of-use risk.
+- Prefer atomic replacement for mutable latest-state artifacts. Use collision-resistant names and no-overwrite semantics for immutable history.
+- Treat generated report/history/log failures as a distinct failure domain from the underlying business or repository operation. Preserve the primary outcome, surface output failures, and define exit-code precedence so required-output failures cannot produce false success.
+- Use structured, allowlisted log fields. Redact credential-bearing URLs and secret values; do not serialize arbitrary objects, command arguments, environment variables, file contents, or complete exception context by default.
+- Ensure disabled logging has no filesystem side effects.
+
 ## Multi-factor authentication
 
 When implementing or changing MFA:
