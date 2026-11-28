@@ -19,6 +19,13 @@ For resumed work, locate the latest project session checkpoint, verify it agains
 ## Project bootstrap
 Each project may include a small local `AGENTS.md` that identifies project-specific conventions and points to the standard. Do not copy the entire standard into every project.
 
+## Editing and Git workflow
+
+- Consider GitHub-native editing first for suitable documentation and other low-risk text-only changes when repository state, automation triggers, and the complete diff can be inspected safely.
+- Use a local workspace when runtime access, code execution, automated tests, complex refactoring, or stronger diff control materially improves correctness or safety.
+- Keep feature and fix work on focused branches. Commit directly to the default branch only when the user explicitly authorizes it, repository rules permit it, the change is bounded and low risk, and relevant automation triggers have been inspected. Never treat the default branch as a scratch branch.
+- A web commit may trigger `push` or other configured workflows. Inspect `.github/workflows/` and known external CI before publishing; do not claim a commit is CI-free based only on the absence of a visible workflow directory.
+
 ## Availability and synchronization
 Codex does not automatically fetch arbitrary remote Markdown instructions just because a URL is mentioned. For reliable operation, clone this repository locally and keep it updated, or use a controlled setup script/symlink strategy. If the standard cannot be accessed, disclose that and do not claim compliance with unseen policy content.
 

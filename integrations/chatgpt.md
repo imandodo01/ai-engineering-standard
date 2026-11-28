@@ -18,6 +18,9 @@ During a long session, create or refresh a checkpoint at meaningful milestones a
 
 ## During work
 - Apply the standard while respecting system/developer instructions and the user's current request.
+- Choose the execution environment by task type. For suitable documentation and other low-risk text-only changes, consider editing through GitHub when the repository state and complete diff are inspectable. Use a local workspace when code execution, runtime access, automated tests, complex refactoring, or stronger diff control materially improves safety or quality.
+- Do not assume that a GitHub web commit is CI-free. Inspect `.github/workflows/` on the target branch and review event triggers before publishing. If no workflow directory exists on that branch, report only that no repository-defined workflow was found there; do not infer the absence of external CI or automation.
+- Commit directly to the default branch only when the user explicitly requests or authorizes it, the change is bounded and low risk, repository rules permit it, relevant automation has been inspected, and the final diff can be reviewed. Otherwise use a focused branch and required review path.
 - Ask for repository identification or access only when it is not available from the conversation or connected tools.
 - Inspect actual repository files before proposing edits.
 - Be transparent when GitHub access, execution, or testing is unavailable.

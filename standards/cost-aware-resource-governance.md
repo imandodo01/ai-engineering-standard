@@ -78,9 +78,9 @@ Ask for explicit approval before initiating the chargeable work. Approval should
 
 A previous approval does not authorize a higher cap, a new provider, a different purpose, a recurring schedule, or materially expanded usage. Seek renewed approval when the scope or expected exposure materially changes.
 
-## 5. Local-first development and PR-based CI
+## 5. GitHub-native editing, local verification, and hosted CI
 
-Use local development and verification as the default when the available machine can adequately perform the work. Prefer local coding, tests, linting, static analysis, builds, and debugging before consuming hosted runners.
+Choose the environment that minimizes unnecessary cost without weakening review or verification. Consider GitHub-native editing first for suitable documentation and other low-risk text-only changes when the repository state, diff, and automation triggers can be inspected. Use a local workspace for code changes that need runtime access, automated tests, complex refactoring, or stronger diff control. Prefer local execution for tests, linting, static analysis, builds, and debugging when the local environment can adequately perform them.
 
 A hosted CI run is normally appropriate when a coherent change is ready for PR review and the repository's PR workflow provides required or useful independent validation. Treat ordinary, bounded PR validation under the repository's existing CI configuration as the expected CI use case; this does not authorize materially more expensive runners, expanded matrices, or unrelated paid services.
 
@@ -90,7 +90,9 @@ Apply these rules:
 - Open or mark the PR ready when the change is ready for review and PR-based validation. A draft PR is not a general-purpose CI queue.
 - Avoid repeated PR updates or reruns that execute the same checks without a concrete reason. Re-run only when the commit changes, a prior run failed for a relevant reason, or repository policy requires it.
 - Non-PR CI activity—including push-triggered workflows, manual dispatches, scheduled jobs, ad hoc workflow runs, and repeated reruns—requires explicit approval unless a repository-specific policy or prior authorization clearly covers that execution.
-- Inspect workflow triggers before publishing a commit or push. GitHub web editing and committing do not themselves consume GitHub Actions minutes, but the resulting push/commit may trigger workflows configured for those events.
+- Inspect the default branch and relevant target branch for `.github/workflows/` before publishing. Check each workflow's `on` triggers, including `push`, `pull_request`, `workflow_dispatch`, and `schedule`; also consider repository rules and known external CI integrations. The absence of `.github/workflows/` on the inspected branch means no repository-defined GitHub Actions workflow was found there, but does not prove that other branches, GitHub Apps, or external CI systems cannot run checks.
+- GitHub web editing and committing do not themselves consume GitHub Actions minutes, but the resulting commit/push may trigger configured automation. Do not describe a publish action as CI-free until its relevant triggers have been inspected.
+- A direct commit to the default branch is permitted only under the explicit, bounded, low-risk exception in Git Policy and Development Workflow. If a workflow or other automation will trigger and its cost is not already authorized, do not publish until the user has approved that execution or a non-triggering route is established.
 - Do not assume all GitHub features are free: hosted runners, Codespaces, storage, artifacts, caches, and other metered services have separate usage and billing rules. Check the applicable plan, repository visibility, included quota, and overage settings when cost matters.
 - Preserve required branch protection, status checks, security scans, and verification gates. Do not bypass or weaken them to reduce cost.
 - If required CI is unavailable or not approved, keep the work on its branch and mark the required validation as pending; do not merge or claim full verification.
@@ -163,6 +165,7 @@ AI agents must:
 
 - Identify potentially chargeable actions before executing them.
 - Prefer free or already-included resources first when they adequately satisfy the requirements.
+- For suitable documentation and low-risk text-only changes, consider GitHub-native editing before setting up a local workspace; do not use this as a reason to skip diff review, repository rules, or required verification.
 - Check free-tier quotas, overage behavior, billing activation, and relevant data/security limitations rather than assuming free means unlimited or risk-free.
 - Proceed autonomously with low-cost, bounded work that fits an established allowance or authorization.
 - Obtain explicit approval for high-cost work and for moderate work outside an established budget.

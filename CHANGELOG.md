@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Adopt a GitHub-native-first decision for suitable low-risk documentation and text-only changes while retaining local execution for code, runtime-dependent work, and meaningful verification.
+- Clarify the explicitly authorized direct-to-default-branch exception for bounded documentation changes, with repository-rule, automation-trigger, and final-diff review safeguards.
+- Strengthen CI-cost guidance: inspect target-branch GitHub Actions triggers before publishing and do not infer that missing repository workflows means external automation is absent.
 - Add provider-independent Lean Engineering Practices, adapting selected Ponytail ideas: smallest complete implementation, reuse before creating, caller/downstream impact inspection, evidence-based deletion-first review, deliberate shortcut tracking, and explicit non-negotiable safety boundaries.
 - Integrate lean practices into the agent entry point, engineering principles, code quality policy, and development workflow; index the policy in the README.
 - Align parallel-workstream verification with implementation-first batching so routine checks can be consolidated without delaying risk-driven checks or weakening pre-review verification.

@@ -5,11 +5,12 @@
 - Never discard, reset, clean, stash-pop over, or overwrite uncommitted user work without permission.
 - Inspect `git status` and the diff before staging or committing.
 - Do not stage the entire repository blindly; stage only files belonging to the task.
-- Prefer local-first development and keep work-in-progress changes on a focused branch rather than using `main` as a scratchpad.
+- Choose the editing environment by task type: consider GitHub-native editing first for suitable low-risk documentation and text-only changes; use a local workspace when execution, tests, complex edits, or stronger diff control materially improves safety or quality. Keep unfinished work off the default branch.
 
 ## Branch-first development and review
 
-- Create or use a focused feature/fix/docs branch for a coherent change. Branches may contain incremental commits while implementation is in progress.
+- Use a focused feature/fix/docs branch for coherent work that needs incremental implementation, review, or verification. Branches may contain incremental commits while implementation is in progress.
+- **Explicit direct-to-default-branch exception:** a bounded, low-risk documentation or text-only change may be committed directly to the default branch only when the user explicitly requests or authorizes it, repository rules permit it, relevant automation triggers have been inspected, and the complete diff can be reviewed before publication. This is not permission to develop unfinished features or bypass required checks, approvals, or branch protection. If any condition is not met, use a focused branch and the repository's normal review path.
 - Use the feature branch as the review point: inspect its commit history and diff against the intended base branch before integration.
 - Do not open a PR merely to obtain an early or repeated CI run. Open or mark a PR ready when the implementation is coherent, required local checks have passed, and it is ready for review or PR-based validation.
 - A PR is not universally mandatory. Follow repository rules: merge a reviewed branch without a PR only when repository policy and branch protection permit it and the required verification/review gates are satisfied.

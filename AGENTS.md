@@ -14,6 +14,8 @@ This file is the mandatory entry point for AI-assisted software engineering work
 - Work autonomously within the explicitly requested scope and established project conventions.
 - For substantial implementation batches, apply [Implementation-First Execution](workflows/implementation-first-execution.md): finish unblocked implementation, consolidate material confirmations, and defer routine test execution until the implementation batch is complete without weakening safety or verification gates.
 - Prefer the smallest complete, maintainable solution over unnecessary abstraction or broad refactoring.
+- Choose the execution environment based on the change: consider GitHub-native editing first for suitable documentation and other low-risk text-only changes when repository state, reviewability, and automation triggers can be inspected; use a local workspace when code execution, runtime access, automated testing, complex refactoring, or stronger diff control materially improves safety or quality.
+- Direct changes to the default branch are exceptional, not the default. Make them only when the user explicitly requests or authorizes direct-to-default-branch work, repository rules permit it, the change is bounded and low risk, and the final diff can be reviewed before publication. Otherwise use a focused branch and the repository's required review process.
 - Plan internally; communicate a concise plan when the work is complex, risky, or benefits from alignment.
 - Implement coherent units of work. Avoid stopping after every trivial file or asking for approval for routine implementation details.
 - Add or update tests where appropriate, run relevant checks, inspect the final diff, and report exact outcomes.

@@ -37,8 +37,9 @@ For implementation batches where routine test execution would fragment progress,
 - Reuse existing abstractions and UI patterns.
 - Add validation, authorization, error handling, and transaction boundaries where required.
 - Avoid unrelated formatting churn and dependency changes.
-- Use local resources as the default development and verification environment when they can adequately satisfy the task.
-- Create or use a focused branch before implementation. Keep incremental work-in-progress commits on that branch; do not use `main` as the scratch branch for unfinished feature or fix work.
+- Choose the execution environment by task type. Consider GitHub-native editing first for suitable documentation and other low-risk text-only changes when the repository state, diff, and automation triggers can be inspected safely. Use a local workspace when runtime access, code execution, automated tests, complex refactoring, or stronger diff control materially improves correctness or safety. Local verification remains preferred whenever it can adequately validate the change.
+- Use a focused branch for feature, fix, refactoring, and other work that benefits from incremental development or review; do not use `main` as a scratch branch for unfinished work.
+- A bounded, low-risk documentation or text-only change may be committed directly to the default branch only when the user explicitly requests or authorizes that route, repository rules permit it, all relevant automation triggers have been inspected, and the complete diff can be reviewed before publication. Otherwise use a focused branch and follow repository review requirements.
 - GitHub's web interface may be used for suitable source edits, documentation, and commits when the change can be reviewed safely without a local runtime. Editing or committing through the web interface does not itself run GitHub Actions, but the resulting push/commit can trigger workflows configured for those events. Inspect workflow triggers before publishing when CI cost matters.
 - Implement independent work items in separate, focused branches.
 - Coordinate shared contracts and high-conflict files rather than editing them concurrently.
