@@ -101,9 +101,9 @@ After required confirmations are resolved:
 
 Follow [Testing and Verification Policy](../standards/testing-policy.md). A completed implementation batch is not automatically technically verified, accepted, merge-ready, or release-ready.
 
-## Completion states
+## Relationship to canonical work status
 
-Use distinct states so deferred work remains visible:
+Use the canonical work-status dimensions so deferred verification and acceptance remain visible:
 
 - Track implementation, verification, and acceptance using the canonical dimensions in [Estimation and Progress Tracking](../standards/estimation-and-progress-tracking.md). Pending confirmations are decision records, not an additional delivery-status system. Keep Git/PR state and session/checkpoint state separate.
 

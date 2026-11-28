@@ -8,7 +8,7 @@
 - For new projects or material scope changes, apply [Requirements and Work Planning](../standards/requirements-and-work-planning.md): understand the desired outcome, capture requirements, identify features, record material ambiguities, and build a proportionate end-to-end work list.
 - When discovery reveals a new actionable requirement, defect, or improvement, follow [Feature Discovery and Registry](../standards/feature-discovery-and-registry.md). Capture it in the project's authoritative registry before it is lost; recording it does not approve or schedule implementation.
 
-## 1a. Classify the task and select applicable guidance
+## 2. Classify the task and select applicable guidance
 
 Classify by **risk, impact, uncertainty, and coordination complexity**, not by lines of code, file count, or estimated effort alone. Use the highest class that applies; a small change can be critical because of the boundary it touches. Reassess when discovery changes the risk or scope.
 
@@ -34,14 +34,14 @@ Use the lightest applicable process; classification selects guidance, it does no
 
 Do not load every workflow by default. Apply a specialized workflow only when its trigger is present: parallel execution, multiple environments, dependency preparation, text/encoding boundaries, multi-target CLI behavior, cost exposure, or session handoff. The task classification is a selector, not a new checklist to mechanically complete.
 
-## 2. Inspect
+## 3. Inspect
 - Read applicable agent/project instructions.
 - Inspect relevant code paths, data models, migrations, tests, dependencies, and Git status.
 - Identify existing conventions and likely regression surfaces.
 - Inspect the project's compatibility matrix when one exists and the change touches supported runtimes, platforms, or dependency constraints. If no matrix exists and compatibility materially affects the change, record the support and tested environments in the project's documentation.
 - Preserve pre-existing user changes.
 
-## 3. Plan
+## 4. Plan
 - For effort and progress records, follow [Estimation and Progress Tracking](../standards/estimation-and-progress-tracking.md); use focused person-hours for effort and keep elapsed time and capacity distinct.
 - For multi-step or risky work, outline a short implementation plan and key risks.
 - Choose the smallest coherent approach.
@@ -54,7 +54,7 @@ Do not load every workflow by default. Apply a specialized workflow only when it
 - For accepted registry items entering a plan, confirm scope, dependencies, priority rationale, estimate, and observable acceptance criteria. Do not treat every accepted idea as a delivery commitment.
 - Use the [Project Lifecycle Checklist](../templates/project-lifecycle-checklist.md) as a prompt when a complete project or milestone plan is useful; adapt it and omit irrelevant items rather than copying it mechanically.
 
-## 4. Implement
+## 5. Implement
 - Apply [Lean Engineering Practices](../standards/lean-engineering-practices.md) throughout implementation: establish the actual need, reuse existing project or platform capabilities, choose the smallest complete solution, and avoid speculative layers or dependencies. Before changing shared behavior or contracts, inspect callers and downstream consumers and update affected tests, fixtures, documentation, and integrations. Prefer deleting demonstrably unnecessary code over adding replacement abstractions, but keep cleanup within the task scope.
 
 For a coherent implementation batch where routine test execution would fragment progress, apply [Implementation-First Execution](implementation-first-execution.md): implement the related, unblocked work in the batch first, then run consolidated verification for that batch. Size the batch by dependencies, acceptance criteria, and risk—not by arbitrary file count. This changes sequencing, not the requirement to verify before claiming technical completion, merge, or release. Bring checks forward when needed to resolve a material design question or contain a high risk.
@@ -71,7 +71,7 @@ For a coherent implementation batch where routine test execution would fragment 
 - Coordinate shared contracts and high-conflict files rather than editing them concurrently.
 - For work that moves between environments, maintain one active writer per branch and transfer ownership explicitly; never assume two local branches with the same name are synchronized.
 
-## 5. Verify
+## 6. Verify
 
 ### Pre-PR readiness gate
 
@@ -114,13 +114,13 @@ These are decision aids, not substitutes for project-specific mandatory gates. A
 - When checks run in different environments, bind each result to the exact tested commit SHA and record relevant runtime/tool versions. Re-run affected checks when the branch advances.
 - Keep user acceptance distinct from implementation and technical verification; leave acceptance pending when the required owner has not yet validated the result.
 
-## 6. Commit (when requested or authorized)
+## 7. Commit (when requested or authorized)
 - Commit a coherent logical unit, not each individual file.
 - Check staged changes and ensure unrelated changes are excluded.
 - Use the project's commit convention; otherwise use Conventional Commits.
 - Never rewrite shared history or force-push without explicit approval.
 
-## 7. Report
+## 8. Report
 
 ### Definition of Done and stop condition
 
@@ -139,7 +139,7 @@ After these conditions are met, report the outcome and stop. Do not automaticall
 - Distinguish implementation state, verification state, and acceptance state; do not describe work as complete solely because implementation exists.
 - For unfinished multi-session work, provide a concise handoff with current branch/commit, completed work and evidence, accepted decisions, assumptions or blockers, unverified items, and the next actionable step.
 
-## 8. Maintain session continuity
+## 9. Maintain session continuity
 - Apply [Session Continuity and Recovery](session-continuity.md) for work likely to span sessions, agent runs, context windows, or providers.
 - Create or refresh a checkpoint at meaningful milestones, after important decisions or verification results, and before a planned interruption or handoff.
 - When context pressure is observable, prioritize checkpointing before starting more substantial work. Never invent token telemetry or claim that the interface will automatically save before a hard cutoff.

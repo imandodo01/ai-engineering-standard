@@ -12,7 +12,7 @@ What behavior or outcome was delivered.
 
 Definitions:
 - **Implemented:** the change exists in the target project.
-- **Verified:** the required checks were actually run and passed. State partial or blocked verification honestly.
+- **Verified:** all required checks were actually run and passed. If only some checks ran, keep Verification Pending or Blocked and describe the partial evidence; never label it Passed.
 - **Accepted:** the applicable acceptance criteria are satisfied, evidence is recorded, and any required review or owner sign-off is complete.
 
 Completion rule: Implementation must be Implemented; Verification must be Passed or Not Required; and Acceptance must be Accepted or Not Required. Do not infer verification from implementation, or acceptance from a successful test run, merged PR, or Git state alone. Keep planning, Git/PR, and session states separate.

@@ -37,9 +37,10 @@ A useful estimate record includes:
 | Estimate basis | Breakdown, analogy, evidence, or assumptions |
 | Confidence | Low, Medium, or High, with reason |
 | Dependencies | Required decisions, people, systems, or deliverables |
+| Blocker / next action | Concrete blocker and the action/owner needed to clear it, when applicable |
 | Risks / assumptions | Factors that could move the estimate |
 | Acceptance criteria | Observable conditions for completion |
-| Planning state | Proposed, Planned, Deferred, or Cancelled; track blockers separately |
+| Planning state | Not Planned, Planned, Deferred, or Cancelled; track blockers separately |
 | Actual effort | Recorded effort spent, when known |
 | Remaining effort | Current estimate of effort still needed |
 | Elapsed time | Calendar time since start or relevant event |
@@ -63,7 +64,7 @@ Actual effort and remaining effort answer different questions. Do not infer rema
 
 ## 4. Track progress through evidence
 
-Use the project's planning lifecycle to show whether work is proposed, planned, deferred, or cancelled. Track blockers as a separate blocker/next-action field rather than adding another execution status. Planning labels are not substitutes for the three execution dimensions below.
+Use the project's planning lifecycle to show whether accepted work is not planned, planned, deferred, or cancelled. Track blockers as a separate blocker/next-action field rather than adding another execution status. Planning labels are not substitutes for the three execution dimensions below.
 
 For each deliverable, use this canonical three-dimension work-status model rather than collapsing implementation, verification, and acceptance into one label:
 
